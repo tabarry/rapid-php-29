@@ -1,0 +1,91 @@
+body{
+    background: url(bg.jpg);
+}
+hr{
+    border-top: 1px solid rgba(138,197,29,0.5);
+}
+
+.launcher{
+    background-color: rgba(138,197,29,0.1);
+
+}
+
+#login{
+    background-color: rgba(138,197,29,0.5);
+    color: rgba(255,255,255,0.9);
+}
+#login a{
+    color: rgba(255,255,255,0.9);
+}
+#login input[type=text]{
+    background-color: rgba(255,255,255,0.5);
+}
+#login ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0,0,0,0.5);
+    opacity: 1; /* Firefox */
+}
+/* MEDIA QUERIES */
+@media (min-width:280px)  { 
+    /* smartphones, iPhone, portrait 480x320 phones */ 
+    .launcher{
+        border-top: 1px solid rgba(138,197,29,0.5);
+        border-bottom: 1px solid rgba(138,197,29,0.5);
+    }
+}
+@media (min-width:320px)  { 
+    /* smartphones, iPhone, portrait 480x320 phones */ 
+    .launcher{
+        border-top: 1px solid rgba(138,197,29,0.5);
+        border-bottom: 1px solid rgba(138,197,29,0.5);
+    }
+}
+@media (min-width:481px)  { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .launcher{
+        border-top: 1px solid rgba(138,197,29,0.5);
+        border-bottom: 1px solid rgba(138,197,29,0.5);
+    }
+}
+@media (min-width:641px)  { 
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .launcher{
+        border-top: 1px solid rgba(138,197,29,0.5);
+        border-bottom: 1px solid rgba(138,197,29,0.5);
+    }
+}
+@media (min-width:961px)  { 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+    .launcher{
+        border-top: 1px solid rgba(138,197,29,0.5);
+        border-bottom: 1px solid rgba(138,197,29,0.5);
+    }
+
+}
+@media (min-width:1025px) { 
+    /* big landscape tablets, laptops, and desktops */
+    .launcher {
+        border-top: 0px none;
+        border-bottom: 0px none;
+        border-left: 1px solid rgba(138,197,29,0.5);
+        border-right: 1px solid rgba(138,197,29,0.5);
+    }
+
+}
+@media (min-width:1281px) { 
+    /* hi-res laptops and desktops */
+    .launcher {
+        border-top: 0px none;
+        border-bottom: 0px none;
+        border-left: 1px solid rgba(138,197,29,0.5);
+        border-right: 1px solid rgba(138,197,29,0.5);
+        margin-top: 5px;
+        padding: 20px 0px 10px 0px;
+        min-height: 400px;
+    }
+
+}
+#launchpad{
+    background: url(bg-blur.jpg);
+
+}

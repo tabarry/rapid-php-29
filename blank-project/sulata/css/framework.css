@@ -1,0 +1,331 @@
+/******************
+- FRAMEWORK CSS
+- DO NOT EDIT
+- TO MAKE A NEW CSS, USE 'site-assets' FOLDER
+******************/
+/* IMPORT EXTERNAL FONTS */
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-VariableFont_wght.ttf);
+}
+/* DEFAULT CSS */
+html, body {
+    font-size: 14px;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    /*background-color: rgba(255,255,255,1);*/
+    color: rgba(0,0,0,0.8);
+    /*padding-top: 10px;*/
+    margin: 20px 20px 20px 20px;
+}
+.page{
+    background-color: rgba(255,255,255,0.9);
+    padding: 30px;
+    box-sizing: border-box;
+    /*min-height: 600px;*/
+
+}
+h1{
+    font-size: 2.5em;
+}
+h1 a{
+    text-decoration: none;
+}
+h1 small{
+    font-size: 0.65em;
+    color: rgba(0,0,0,0.5);
+}
+h2{
+    font-size: 1.5em;
+}
+h3{
+    font-size: 1.17em;
+}
+h4{
+    font-size: 1em;
+}
+p,div{
+    font-size: 1em;
+}
+input,select,textarea{
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: rgba(0,0,0,0.8);
+}
+a{
+    color: rgba(0,0,0,0.8);
+    text-decoration: underline;
+}
+a:hover{
+    color: rgba(0,0,0,0.8);
+    text-decoration: none;
+}
+
+footer{
+    text-align: right;
+    font-size: 0.9em;
+}
+/* LAUNCHER */
+.launcher{
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+.launcher a img{
+    height: auto;
+}
+.launcher a img:hover{
+    transform: scale(1.3);
+    transition: 0.09s
+}
+/* LAUNCHPAD */
+#launchpad{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#launchpad a i{
+    background-color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,1);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    border-radius: 30px/10px; /* horizontal radius / vertical radius */
+}
+#launchpad a i:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition: 0.3s;
+}
+#launchpad p a{
+    font-size: 12px;
+    display: inline-block;
+    margin: 20px 0px 20px 0px;
+    padding: 3px 13px 3px 13px;
+    border-radius: 3px/10px; /* horizontal radius / vertical radius */
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.3);
+    font-weight: 550;    
+}
+#launchpad p a:hover{
+    text-decoration: none;   
+    background-color: rgba(255,255,255,0.6);
+    transition: 0.3s;
+}
+.launchpad-scroll{
+    min-height: 200px;
+    overflow: auto;
+}
+.launchpad-close{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-image: url(icons/close.png);
+    background-size: cover;
+}
+
+
+.launchpad-show{
+    display: block;
+}
+.launchpad-hide{
+    display: none;
+
+}
+
+/* LOGIN */
+#login{
+    margin-top: 100px;
+    width: 100%;
+    padding: 30px 30px 10px 30px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.7));
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.7));
+}
+
+#login div{
+    margin-bottom: 10px;
+}
+
+
+#login :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(0,0,0,0.5);
+}
+
+#login ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(0,0,0,0.5);
+}
+.su-hide{
+    display: none;
+}
+/* MEDIA QUERIES */
+@media (min-width:280px)  { 
+    /* smartphones, iPhone, portrait 480x320 phones */ 
+    .launcher{
+        margin-top: 20px;
+    }
+    .launcher a img{
+        width: 60%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+@media (min-width:320px)  { 
+    /* smartphones, iPhone, portrait 480x320 phones */ 
+    .launcher{
+        margin-top: 20px;
+    }
+    .launcher a img{
+        width: 60%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+@media (min-width:481px)  { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .launcher{
+        margin-top: 20px;
+    }
+    .launcher a img{
+        width: 50%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+@media (min-width:641px)  { 
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .launcher{
+        margin-top: 20px;
+    }
+    .launcher a img{
+        width: 40%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+@media (min-width:961px)  { 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+    .launcher{
+        margin-top: 20px;
+
+    }
+    .launcher a img{
+        width: 30%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+@media (min-width:1025px) { 
+    /* big landscape tablets, laptops, and desktops */
+    .launcher {
+        margin-top: 5px;
+        padding: 20px 0px 10px 0px;
+        min-height: 400px;
+    }
+    .launcher a img{
+        width: 70%;
+        margin: 20px 0px 20px 0px;
+    }
+}
+@media (min-width:1281px) { 
+    /* hi-res laptops and desktops */
+    .launcher {
+        margin-top: 5px;
+        padding: 20px 0px 10px 0px;
+        min-height: 400px;
+    }
+    .launcher a img{
+        width: 70%;
+        margin: 20px 0px 20px 0px;
+    }
+}
+
+#table-area{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#content-area .tbl{
+    background-color: rgba(255,255,255,1);
+}
+
+#content-area .tbl th{
+    font-weight: 500;
+}
+#content-area .btn{
+    text-decoration: none;
+}
+#content-area thead a{
+    color: rgba(255,255,255,1);
+}
+#content-area label{
+    font-weight: 500;
+    margin-top: 8px;
+}
+#message-area{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#error-area{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px 10px 3px 0px;
+    box-sizing: border-box;
+}
+.ui-state-default{
+    border-top: 1px solid rgba(32,109,146,0.5);
+    border-bottom: 1px solid rgba(32,109,146,0.5);
+    width: 100%;
+    background-color: rgba(32,109,146,0.1);
+    box-sizing: border-box;
+    list-style: none;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+    cursor: grabbing;
+}
+.ui-sortable{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.inline-field{
+    border-bottom: 1px dotted rgba(0,0,0,0.5);
+    cursor: text;
+}
+/* Image Thumb */
+.imgThumb{
+    width:auto;
+    height: 50px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    display: block;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+/* Image Theme */
+.imgTheme{
+    width:80%;
+    height: auto;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    display: block;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+.paginate{
+    border: 1px solid rgba(0,0,0,0.5);
+    height: 30px;
+    width: 50px;
+}
