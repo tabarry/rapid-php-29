@@ -10,3 +10,4 @@ CHANGE LOG
 - Short Text from pages module removed
 - Link position added in pages module
 - Custom icons for every module
+- Removed PrettyPhoto and used Bootstrap Modal window

@@ -295,7 +295,7 @@ footer{
     border-bottom: 1px dotted rgba(0,0,0,0.5);
     cursor: text;
 }
-/* Image Thumb */
+/* IMAGE THUMB */
 .imgThumb{
     width:auto;
     height: 50px;
@@ -308,7 +308,7 @@ footer{
     margin-bottom: 5px;
     box-sizing: border-box;
 }
-/* Image Theme */
+/* IMAGE THEME */
 .imgTheme{
     width:80%;
     height: auto;
@@ -325,4 +325,9 @@ footer{
     border: 1px solid rgba(0,0,0,0.5);
     height: 30px;
     width: 50px;
+}
+/* MODAL WINDOW */
+.modal-lg {
+    max-width: 80% !important;
+    min-height: 600px;
 }
