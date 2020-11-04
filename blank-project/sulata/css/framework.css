@@ -121,10 +121,7 @@ footer{
     background-color: rgba(255,255,255,0.6);
     transition: 0.3s;
 }
-.launchpad-scroll{
-    min-height: 200px;
-    overflow: auto;
-}
+
 .launchpad-close{
     height: 20px;
     width: 20px;
