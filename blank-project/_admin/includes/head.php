@@ -21,6 +21,9 @@ if ($_COOKIE['ck_theme'] == '') {
 }
 ?>
 <link id="themeCss" href="<?php echo BASE_URL; ?>sulata/css/themes/<?php echo $_SESSION[SESSION_PREFIX . 'user__Theme']; ?>/theme.css" rel="stylesheet">
+<!-- BOOTSTRAP -->
+<script src="<?php echo BASE_URL; ?>default-assets/js/jquery.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>default-assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
 
 <!-- Chosen CSS -->
 <link href="<?php echo BASE_URL; ?>sulata/chosen/bootstrap-chosen.css" rel="stylesheet" type="text/css"/>
@@ -37,7 +40,3 @@ if ($_COOKIE['ck_theme'] == '') {
 <!-- Chosen JQuery -->
 <script src="<?php echo BASE_URL; ?>sulata/chosen/chosen.jquery.js" type="text/javascript"></script>
 <!-- Other JS files go in the footer -->
-<!-- Skip overlay -->
-<script>
-    //skipOverlay = false;
-</script>

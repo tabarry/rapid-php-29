@@ -154,7 +154,7 @@ if ($_SESSION[SESSION_PREFIX . 'user__Type'] == 'Private') {
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    <!--PRETTY PHOTO-->
-    <?php include('includes/pretty-photo.php'); ?>   
+    
+       
     <?php suIframe(); ?>
 </html>

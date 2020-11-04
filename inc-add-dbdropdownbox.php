@@ -27,12 +27,10 @@ $addCode .= "
 
 
 <!-- MODAL WINDOW -->
-                                                    <button type=\"button\" class=\"btn btn-dark btn-sm\" data-toggle=\"modal\" data-target=\"#{$addpage}-add\">
-                                                        <i class=\"fa fa-plus\"></i>
-                                                    </button>
+                                                    <a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#{$addpage}-add\"><i class=\"fa fa-plus\"></i></a>
                                                     <?php suModalWindow('" . $addpage . "-add', ADMIN_URL . '" . $addpage . "-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
 
-<a onclick=\"suReload('" . $_POST['frmField'][$i] . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $table . "',TRUE);?>','<?php echo suCrypt('" . $fieldId . "',TRUE);?>','<?php echo suCrypt('" . $fieldText . "',TRUE);?>');\" href=\"javascript:;\" class=\"btn btn-dark btn-sm\"><i class=\"fa fa-undo\"></i></a>    
+<a onclick=\"suReload('" . $_POST['frmField'][$i] . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $table . "',TRUE);?>','<?php echo suCrypt('" . $fieldId . "',TRUE);?>','<?php echo suCrypt('" . $fieldText . "',TRUE);?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>    
 <?php } ?>    
 </label>
                                 <?php

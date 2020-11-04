@@ -159,7 +159,7 @@ if (suSegment(2) == 'duplicate') {
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    <!--PRETTY PHOTO-->
-    <?php include('includes/pretty-photo.php'); ?>   
+    
+       
     <?php suIframe(); ?>
 </html>
