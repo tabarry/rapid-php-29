@@ -177,7 +177,7 @@ if (suSegment(1) == '') {
                                         $result = suQuery($sql);
                                         ?>
                                         <table width="100%" class="table table-hover table-bordered tbl">
-                                            <thead>
+                                            <thead class="bg-dark text-white">
                                                 <tr>
                                                     <th width="90%">GROUPS</th>
                                                     <th width="10%" class="right">
@@ -209,13 +209,15 @@ if (suSegment(1) == '') {
                                             </tbody>
                                         </table>
                                     <?php } ?>
+                                        <div class="row">
                                     <div class="col-12">
-                                        <p class="text-right mt-1">
+                                        <p class="text-right">
                                             <?php
                                             $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                             echo suInput('input', $arg);
                                             ?>                              
                                         </p>
+                                        </div>
                                     </div>
                                 </div>
                                 <?php
@@ -236,7 +238,6 @@ if (suSegment(1) == '') {
                                     echo suInput('input', $arg);
                                 }
                                 ?>
-                                <p>&nbsp;</p>
 
                             </form>
                             <!--SU ENDS-->
