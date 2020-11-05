@@ -78,8 +78,7 @@ if (suSegment(1) == '') {
                             <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>users-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" enctype="multipart/form-data">
                                 <div class="gallery clearfix">
                                     <div class="row">
-
-                                        <div class="col-12 col-md-6">                
+                                         <div class="col-12 col-md-6">                
                                             <label><?php echo $dbs_sulata_users['user__Name_req']; ?><?php echo $dbs_sulata_users['user__Name_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_users['user__Name_html5_type'], 'name' => 'user__Name', 'id' => 'user__Name', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Name_max'], 'value' => suUnstrip($row['user__Name']), $dbs_sulata_users['user__Name_html5_req'] => $dbs_sulata_users['user__Name_html5_req'], 'class' => 'form-control');
@@ -120,7 +119,7 @@ if (suSegment(1) == '') {
                                         </div>
 
                                         <!--//-->
-                                        <div class="col-12"></div>
+                                                                                <div class="col-12"></div>
                                         <div class="col-12 col-md-6">  
 
                                             <label><?php echo $dbs_sulata_users['user__Picture_req']; ?><?php echo $dbs_sulata_users['user__Picture_title']; ?>:</label>
@@ -131,17 +130,15 @@ if (suSegment(1) == '') {
                                                 $defaultImage = BASE_URL . 'files/default-image.png';
                                             }
                                             ?>
-
-                                            <div class="imgThumb" style="background-image:url(<?php echo $defaultImage; ?>);width:100px;height:100px;"></div>    
+                                                                                        <div class="imgThumb" style="background-image:url(<?php echo $defaultImage; ?>);width:100px;height:100px;"></div>    
                                             <?php
                                             $arg = array('type' => $dbs_sulata_users['user__Picture_html5_type'], 'name' => 'user__Picture', 'id' => 'user__Picture', 'class' => 'form-control');
                                             echo suInput('input', $arg);
                                             ?>
                                             <?php if ((file_exists(ADMIN_UPLOAD_PATH . $row['user__Picture'])) && ($row['user__Picture'] != '')) { ?>
                                                 <div class="container"><a class="underline" href="<?php echo BASE_URL . 'files/' . $row['user__Picture']; ?>" target="_blank"><?php echo VIEW_FILE; ?></a></div>
-                                            <?php } ?>    
-
-                                            <div class="container"><?php echo $getSettings['allowed_image_formats']; ?></div>
+                                            <?php } ?>  
+                                                                                            <div class="container"><?php echo $getSettings['allowed_image_formats']; ?></div>
                                             <?php
                                             $arg = array('type' => 'hidden', 'name' => 'previous_user__Picture', 'id' => 'previous_user__Picture', 'value' => $row['user__Picture']);
                                             echo suInput('input', $arg);
@@ -149,8 +146,6 @@ if (suSegment(1) == '') {
                                         </div>
                                         <div class="col-12"></div>
                                         <?php if (suSegment(1) != '') { ?>
-
-
                                             <div class="col-12 col-md-6">        
                                                 <label><?php echo $dbs_sulata_users['user__Status_req']; ?><?php echo $dbs_sulata_users['user__Status_title']; ?>:</label>
                                                 <?php
@@ -162,7 +157,7 @@ if (suSegment(1) == '') {
                                         </div>
 
 
-                                        <div class="col-12"></div>
+                                        <p class="clearfix">&nbsp;</p>
                                         <?php
                                         $chkArr = array();
 //Get entered data
@@ -177,7 +172,7 @@ if (suSegment(1) == '') {
                                         $result = suQuery($sql);
                                         ?>
                                         <table width="100%" class="table table-hover table-bordered tbl">
-                                            <thead class="bg-dark text-white">
+                                            <thead>
                                                 <tr>
                                                     <th width="90%">GROUPS</th>
                                                     <th width="10%" class="right">
@@ -209,19 +204,13 @@ if (suSegment(1) == '') {
                                             </tbody>
                                         </table>
                                     <?php } ?>
-                                        <div class="row">
-                                    <div class="col-12">
-                                        <p class="text-right">
-                                            <?php
-                                            $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
-                                            echo suInput('input', $arg);
-                                            ?>                              
-                                        </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                //Referrer field
+                                        <div class="col-12">
+                                            <div class="text-right">
+                                                <?php
+                                        $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
+                                        echo suInput('input', $arg);
+                                        
+                                        //Referrer field
                                 $arg = array('type' => 'hidden', 'name' => 'referrer', 'id' => 'referrer', 'value' => $_SERVER['HTTP_REFERER']);
                                 echo suInput('input', $arg);
                                 //Id field
@@ -237,8 +226,12 @@ if (suSegment(1) == '') {
                                     $arg = array('type' => 'hidden', 'name' => 'update_profile', 'id' => 'update_profile', 'value' => '1');
                                     echo suInput('input', $arg);
                                 }
-                                ?>
-
+                                        ?>         
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                             <!--SU ENDS-->
                         </div>
