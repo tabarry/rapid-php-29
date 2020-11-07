@@ -28,7 +28,7 @@ for ($i = 0; $i <= sizeof($sql); $i++) {
 //Update default_user_password and UID
 $user_email = $_POST['directory'] . "@sulata.com.pk";
 $user_password = $_POST['default_user_password'];
-$sql2 = "UPDATE sulata_users SET user__UID='" . uniqid() . "',user__Email='" . $_POST['directory'] . "@sulata.com.pk',user__Password='" . crypt($user_password, $apiKey) . "' WHERE user__ID='1'";
+$sql2 = "UPDATE sulata_users SET user__UID='" . uniqid() . "',user__Email='" . $_POST['directory'] . "@sulata.com.pk',user__Password='" . crypt($user_password, $apiKey) . "',user__Temp_Password='" . crypt($user_password, $apiKey) . "' WHERE user__ID='1'";
 mysqli_query($cn, $sql2) or die(mysqli_error($cn));
 //Update project name
 $sql2 = "UPDATE sulata_settings SET setting__Value='" . ucwords($_POST['directory']) . "' WHERE setting__ID='1'";
