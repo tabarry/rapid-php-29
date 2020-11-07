@@ -112,7 +112,25 @@ if ($_GET['do'] == 'retrieve') {
             $(document).ready(function () {
                 //Disable submit button
                 suToggleButton(1);
+                //SET LOGIN FORM HEIGHT
+                doSetLoginHeight();
+
+                //Submit login form on enter
+                $('#suForm input').keypress(function (e) {
+                    if (e.which == 13) {
+                        $('form#suForm').submit();
+                        return false;    //<---- Add this line
+                    }
+                });
+                //Submit reset form on enter
+                $('#suForm2 input').keypress(function (e) {
+                    if (e.which == 13) {
+                        $('form#suForm2').submit();
+                        return false;    //<---- Add this line
+                    }
+                });
             });
+
         </script> 
     </head>
     <body>
@@ -120,8 +138,8 @@ if ($_GET['do'] == 'retrieve') {
             <div class="row">
                 <div class="col-1 col-md-2 col-lg-4"></div>
                 <div class="col-10 col-md-8 col-lg-4">
-                    <div id="login">
-                        <div>
+                    <div class="row" id="message-wrapper">
+                        <div class="col-6 col-sm-10">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
                             </div>    
@@ -129,51 +147,91 @@ if ($_GET['do'] == 'retrieve') {
                                 <p></p>
                             </div>
                         </div>
+                        <div class="col-6 col-sm-2">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div id="login">
                         <!-- LOGIN -->
                         <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=login" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
-                            <div>
-                                <?php
-                                $arg = array('type' => 'text', 'name' => 'user__Email', 'id' => 'user__Email', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Email_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_users['user__Email_req'] . $dbs_sulata_users['user__Email_title']);
-                                echo suInput('input', $arg);
-                                ?>
+                            <div class="row" id="form-login">
+                                <div class="col-6 col-sm-10">
+                                    <div>
+                                        <?php
+                                        $arg = array('type' => 'email', 'name' => 'user__Email', 'id' => 'user__Email', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Email_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_users['user__Email_req'] . $dbs_sulata_users['user__Email_title'], 'required' => 'required');
+                                        echo suInput('input', $arg);
+                                        ?>
+                                    </div>
+                                    <div>
+                                        <?php
+                                        $arg = array('type' => 'password', 'name' => 'user__Password', 'id' => 'user__Password', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Password_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_users['user__Password_req'] . $dbs_sulata_users['user__Password_title']);
+                                        echo suInput('input', $arg);
+
+                                        //Login button
+                                        $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'su-hide');
+                                        echo suInput('button', $arg, 'Login', TRUE);
+                                        ?>
+
+                                    </div>
+                                </div>
+                                <div class="col-6 col-sm-2">
+                                    <a href="javascript:;" onclick="$('#suForm').submit();"><i id="login-button" class="fa fa-arrow-circle-right"></i></a>
+                                </div>
                             </div>
-                            <div>
-                                <?php
-                                $arg = array('type' => 'password', 'name' => 'user__Password', 'id' => 'user__Password', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Password_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_users['user__Password_req'] . $dbs_sulata_users['user__Password_title']);
-                                echo suInput('input', $arg);
-                                ?>
+                            <div class="row">
+                                <div class="col-6 col-sm-10 text-right">
+                                    <a href="javascript:;" onclick="$('#suForm').hide();
+                                            $('#suForm2').show();
+                                            $('#error-area').hide();
+                                            $('#success-area').hide();
+                                            doSetResetHeight();"><i class="fa fa-question-circle size-200"></i></a>
+                                </div>
+                                <div class="col-6 col-sm-2">
+                                    &nbsp;
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <?php
-                                $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
-                                echo suInput('button', $arg, '<i class="fa fa-key"></i> Login', TRUE);
-                                ?>
-                            </div>
-                            <div class="text-right"><a href="javascript:;" onclick="$('#suForm').hide();$('#suForm2').show();$('#error-area').hide();$('#success-area').hide();">Lost password?</a></div>
+
                         </form>
                         <!-- LOST PASSWORD -->
-                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=retrieve" accept-charset="utf-8" name="suForm2" id="suForm2" method="post" target="remote" class="su-hide">	
-                            <p>Provide your email to reset password.</p>
-                            <div>
-                                <?php
-                                $arg = array('type' => 'text', 'name' => 'user__Email', 'id' => 'user__Email', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Email_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_faqs['user__Email_req'] . $dbs_sulata_faqs['user__Email_title']);
-                                echo suInput('input', $arg);
-                                ?>
+                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=retrieve" accept-charset="utf-8" name="suForm2" id="suForm2" method="post" target="remote" class="su-hide">
+                            <!-- RESET FORM -->
+                            <div class="row" id="form-reset">
+                                <div class="col-8 col-sm-10">
+                                    <div>
+                                        <?php
+                                        $arg = array('type' => 'email', 'name' => 'user__Email', 'id' => 'user__Email', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Email_max'], 'class' => 'form-control', 'placeholder' => $dbs_sulata_faqs['user__Email_req'] . $dbs_sulata_faqs['user__Email_title'], 'placeholder' => 'Type email to reset password.', 'required' => 'required');
+                                        echo suInput('input', $arg);
+
+                                        //Login button
+                                        $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'su-hide');
+                                        echo suInput('button', $arg, 'Login', TRUE);
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-2">
+                                    <a href="javascript:;" onclick="$('#suForm2').submit();"><i id="login-button2" class="fa fa-arrow-circle-right"></i></a>
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <?php
-                                $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
-                                echo suInput('button', $arg, '<i class="fa fa-key"></i> Login', TRUE);
-                                ?>
+                            <!-- BACK -->
+                            <div class="row">
+                                <div class="col-8 col-sm-10 text-right">
+                                    <a href="javascript:;" onclick="$('#suForm').show();
+                                            $('#suForm2').hide();
+                                            $('#error-area').hide();
+                                            $('#success-area').hide();"><i class="fa fa-arrow-circle-left size-200"></i></a>
+                                </div>
+                                <div class="col-4 col-sm-2">
+                                    &nbsp;
+                                </div>
                             </div>
-                            <div class="text-right"><a href="javascript:;" onclick="$('#suForm').show();$('#suForm2').hide();$('#error-area').hide();$('#success-area').hide();"><i class="fa fa-arrow-left"></i> Back</a></div>
+
                         </form>
                     </div>
                 </div>
                 <div class="col-1 col-md-2 col-lg-4"></div>
             </div>
         </div>
-        <?php include('includes/footer-js.php'); ?>
+    <?php include('includes/footer-js.php'); ?>
     </body>
-    <?php suIframe(); ?>
+<?php suIframe(); ?>
 </html>

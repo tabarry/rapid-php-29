@@ -1,3 +1,8 @@
+/******************
+ - FRAMEWORK JS
+ - DO NOT EDIT THIS JS FILE
+ - TO USE ANY SITE SPECIFIC JS, USE 'site-assets/js/site.js' FILE
+ ******************/
 
 //Keep session live
 function suStayAlive(url) {
@@ -519,3 +524,16 @@ $(document).ready(function () {
     doSetLaunchpadHeight();
 });
 
+
+//SET LOGIN FORM HEIGHT
+function doSetLoginHeight() {
+    h = $('#form-login').height();
+    document.getElementById('login-button').style.marginTop = (h / 4) + 'px';
+    $('#login-button').css("font-size", (h / 2) + "px");
+}
+//SET RESET FORM HEIGHT
+function doSetResetHeight() {
+    h2 = $('#form-reset').height();
+    document.getElementById('login-button2').style.marginTop = (h2 / 4) + 'px';
+    $('#login-button2').css("font-size", (h2 / 2) + "px");
+}

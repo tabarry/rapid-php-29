@@ -2,23 +2,25 @@ body{
     background: url(bg.jpg);
 }
 hr{
-    /*border-top: 1px solid rgba(32,109,146,0.5);*/
-    border-top: 1px solid rgba(32,109,146,0.5);
+    border-top: 1px solid rgba(253,30,43,0.5);
 }
 
 .launcher{
-    background-color: rgba(32,109,146,0.1);
+    background-color: rgba(253,30,43,0.1);
 
 }
-#login{
-    background-color: rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.9);
-}
+
 #login a{
     color: rgba(255,255,255,0.9);
 }
-#login input[type=text]{
-    background-color: rgba(255,255,255,0.6);
+#login input[type=email],input[type=password]{
+    background-color: rgba(255,255,255,0.9);
+    border:10px solid rgba(255,255,255,0.7);
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
 }
 #login ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgba(0,0,0,0.7);
@@ -28,37 +30,37 @@ hr{
 @media (min-width:280px)  { 
     /* smartphones, iPhone, portrait 480x320 phones */ 
     .launcher{
-        border-top: 1px solid rgba(32,109,146,0.5);
-        border-bottom: 1px solid rgba(32,109,146,0.5);
+        border-top: 1px solid rgba(253,30,43,0.5);
+        border-bottom: 1px solid rgba(253,30,43,0.5);
     }
 }
 @media (min-width:320px)  { 
     /* smartphones, iPhone, portrait 480x320 phones */ 
     .launcher{
-        border-top: 1px solid rgba(32,109,146,0.5);
-        border-bottom: 1px solid rgba(32,109,146,0.5);
+        border-top: 1px solid rgba(253,30,43,0.5);
+        border-bottom: 1px solid rgba(253,30,43,0.5);
     }
 }
 @media (min-width:481px)  { 
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .launcher{
-        border-top: 1px solid rgba(32,109,146,0.5);
-        border-bottom: 1px solid rgba(32,109,146,0.5);
+        border-top: 1px solid rgba(253,30,43,0.5);
+        border-bottom: 1px solid rgba(253,30,43,0.5);
     }
 }
 @media (min-width:641px)  { 
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .launcher{
-        border-top: 1px solid rgba(32,109,146,0.5);
-        border-bottom: 1px solid rgba(32,109,146,0.5);
+        border-top: 1px solid rgba(253,30,43,0.5);
+        border-bottom: 1px solid rgba(253,30,43,0.5);
     }
 }
 @media (min-width:961px)  { 
     /* tablet, landscape iPad, lo-res laptops ands desktops */
 
     .launcher{
-        border-top: 1px solid rgba(32,109,146,0.5);
-        border-bottom: 1px solid rgba(32,109,146,0.5);
+        border-top: 1px solid rgba(253,30,43,0.5);
+        border-bottom: 1px solid rgba(253,30,43,0.5);
     }
 
 }
@@ -67,8 +69,8 @@ hr{
     .launcher {
         border-top: 0px none;
         border-bottom: 0px none;
-        border-left: 1px solid rgba(32,109,146,0.5);
-        border-right: 1px solid rgba(32,109,146,0.5);
+        border-left: 1px solid rgba(253,30,43,0.5);
+        border-right: 1px solid rgba(253,30,43,0.5);
     }
 
 }
@@ -77,8 +79,8 @@ hr{
     .launcher {
         border-top: 0px none;
         border-bottom: 0px none;
-        border-left: 1px solid rgba(32,109,146,0.5);
-        border-right: 1px solid rgba(32,109,146,0.5);
+        border-left: 1px solid rgba(253,30,43,0.5);
+        border-right: 1px solid rgba(253,30,43,0.5);
         margin-top: 5px;
         padding: 20px 0px 10px 0px;
         min-height: 400px;
