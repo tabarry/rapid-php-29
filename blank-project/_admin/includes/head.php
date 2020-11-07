@@ -33,8 +33,6 @@ if ($_COOKIE['ck_theme'] == '') {
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>default-assets/css/font-awesome/css/all.min.css" type="text/css" media="screen" />
 <!-- CK Editor -->
 <script src="<?php echo BASE_URL; ?>sulata/ckeditor/ckeditor.js"></script>
-<!-- Pretty Photo -->
-<link rel="stylesheet" href="<?php echo BASE_URL; ?>sulata/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
 <!-- jQuery -->
 <script src="<?php echo BASE_URL; ?>sulata/jquery-ui/js/jquery-1.8.3.js" type="text/javascript"></script>
 <!-- Chosen JQuery -->
