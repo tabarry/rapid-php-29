@@ -54,7 +54,7 @@ if ($do == "add") {
 
     //build query for file  uploads
     $user_uid = uniqid();
-    $sql = "INSERT INTO sulata_users SET user__Name='" . suStrip($_POST['user__Name']) . "',user__UID='" . $user_uid . "',user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Status='" . suStrip($_POST['user__Status']) . "',user__IP='" . suGetRealIpAddr() . "', user__Last_Action_On ='" . date('Y-m-d H:i:s') . "',user__Last_Action_By='" . $_SESSION[SESSION_PREFIX . 'user__Name'] . "', user__dbState='Live' " . $extraSql;
+    $sql = "INSERT INTO sulata_users SET user__Name='" . suStrip($_POST['user__Name']) . "',user__UID='" . $user_uid . "',user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Temp_Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Status='" . suStrip($_POST['user__Status']) . "',user__IP='" . suGetRealIpAddr() . "', user__Last_Action_On ='" . date('Y-m-d H:i:s') . "',user__Last_Action_By='" . $_SESSION[SESSION_PREFIX . 'user__Name'] . "', user__dbState='Live' " . $extraSql;
     $result = suQuery($sql);
 
     if ($result['errno'] > 0) {
@@ -172,7 +172,7 @@ if ($do == "update") {
 //Get autocomplete insert ids
 //update record
     if ($_POST['user__Password'] != '') {
-        $extraSql = ", user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "'";
+        $extraSql = ", user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "', user__Temp_Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "'";
     }
 
 
@@ -291,7 +291,7 @@ if ($do == "update-password") {
 //update record
     $extraSql = '';
 
-    $sql = "UPDATE sulata_users SET user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Password_Reset='No', user__Last_Action_On ='" . date('Y-m-d H:i:s') . "',user__Last_Action_By='" . $_SESSION[SESSION_PREFIX . 'user__Name'] . "', user__dbState='Live' " . $extraSql . " WHERE user__ID='" . $_SESSION[SESSION_PREFIX . 'user__ID'] . "'";
+    $sql = "UPDATE sulata_users SET user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Temp_Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "',user__Password_Reset='No', user__Last_Action_On ='" . date('Y-m-d H:i:s') . "',user__Last_Action_By='" . $_SESSION[SESSION_PREFIX . 'user__Name'] . "', user__dbState='Live' " . $extraSql . " WHERE user__ID='" . $_SESSION[SESSION_PREFIX . 'user__ID'] . "'";
     $result = suQuery($sql);
 
     if ($result['errno'] > 0) {

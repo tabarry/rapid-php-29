@@ -482,35 +482,6 @@
             
         );
 
-    $dbs_sulata_qr_sessions =
-        array(
-        
-            'qr_session__Session_req'=>'*',
-            'qr_session__Session_title'=>'Session',
-            'qr_session__Session_max'=>'26',
-            'qr_session__Session_validateas'=>'required',
-            'qr_session__Session_html5_req'=>'required',
-            'qr_session__Session_html5_type'=>'text',
-            
-            
-            'qr_session__UID_req'=>'',
-            'qr_session__UID_title'=>'UID',
-            'qr_session__UID_max'=>'13',
-            'qr_session__UID_validateas'=>'',
-            'qr_session__UID_html5_req'=>'',
-            'qr_session__UID_html5_type'=>'text',
-            
-            
-            'qr_session__Date_req'=>'*',
-            'qr_session__Date_title'=>'Date',
-            'qr_session__Date_max'=>'',
-            'qr_session__Date_validateas'=>'required',
-            'qr_session__Date_html5_req'=>'required',
-            'qr_session__Date_html5_type'=>'text',
-            
-            
-        );
-
     $dbs_sulata_settings =
         array(
         
@@ -706,6 +677,14 @@
             'user__Password_validateas'=>'password',
             'user__Password_html5_req'=>'required',
             'user__Password_html5_type'=>'password',
+            
+            
+            'user__Temp_Password_req'=>'*',
+            'user__Temp_Password_title'=>'Temp Password',
+            'user__Temp_Password_max'=>'13',
+            'user__Temp_Password_validateas'=>'password',
+            'user__Temp_Password_html5_req'=>'required',
+            'user__Temp_Password_html5_type'=>'password',
             
             
             'user__Picture_req'=>'',

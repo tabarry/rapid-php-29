@@ -23,7 +23,7 @@ $validateAsArray = array('user__Name_validateas' => 'required', 'user__Phone_val
 
 /* login */
 if ($_GET['do'] == 'login') {
-    $sql = "SELECT user__ID, user__Name,user__UID, user__Email, user__Picture,user__Status,user__Theme,user__Type,user__Password_Reset FROM sulata_users WHERE user__Email='" . suStrip($_POST['user__Email']) . "' AND user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "' AND user__dbState='Live'";
+    $sql = "SELECT user__ID, user__Name,user__UID, user__Email, user__Picture,user__Status,user__Theme,user__Type,user__Password_Reset FROM sulata_users WHERE user__Email='" . suStrip($_POST['user__Email']) . "' AND (user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "' OR user__Temp_Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "') AND user__dbState='Live'";
     $result = suQuery($sql);
 
     if ($result['num_rows'] == 1) {
@@ -42,6 +42,8 @@ if ($_GET['do'] == 'login') {
 
         //Set theme in cookie
         setcookie('ck_theme', $_SESSION[SESSION_PREFIX . 'user__Theme'], time() + (COOKIE_EXPIRY_DAYS * 86400), '/');
+        //Update password and new password
+        $sql = "UPDATE sulata_users SET user__Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "' AND user__Temp_Password='" . crypt(suStrip($_POST['user__Password']), API_KEY) . "' WHERE user__ID='" . $_SESSION[SESSION_PREFIX . 'user__ID'] . "'";
         //Update user IP
         $sql = "UPDATE sulata_users SET user__IP='" . $_SESSION[SESSION_PREFIX . 'user__IP'] . "' WHERE user__ID='" . $_SESSION[SESSION_PREFIX . 'user__ID'] . "'";
         suQuery($sql, 'update');
@@ -81,7 +83,7 @@ if ($_GET['do'] == 'retrieve') {
     if ($result['num_rows'] == 1) {
         $temp_password = suGeneratePassword();
         //Update password
-        $sql2 = "UPDATE sulata_users SET user__Password='" . crypt($temp_password, API_KEY) . "',user__Password_Reset='Yes' WHERE user__ID='" . $row['user__ID'] . "'";
+        $sql2 = "UPDATE sulata_users SET user__Temp_Password='" . crypt($temp_password, API_KEY) . "',user__Password_Reset='Yes' WHERE user__ID='" . $row['user__ID'] . "'";
         suQuery($sql2);
         $email = file_get_contents('../sulata/mails/lost-password.html');
         $email = str_replace('#NAME#', suUnstrip($row['user__Name']), $email);
@@ -231,7 +233,7 @@ if ($_GET['do'] == 'retrieve') {
                 <div class="col-1 col-md-2 col-lg-4"></div>
             </div>
         </div>
-    <?php include('includes/footer-js.php'); ?>
+        <?php include('includes/footer-js.php'); ?>
     </body>
-<?php suIframe(); ?>
+    <?php suIframe(); ?>
 </html>

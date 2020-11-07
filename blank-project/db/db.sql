@@ -136,6 +136,7 @@ CREATE TABLE `sulata_users` (
   `user__UID` varchar(13) NOT NULL,
   `user__Email` varchar(64) NOT NULL COMMENT '|s',
   `user__Password` varchar(13) NOT NULL,
+  `user__Temp_Password` varchar(13) NOT NULL,
   `user__Picture` varchar(128) DEFAULT NULL,
   `user__Status` enum('Active','Inactive') NOT NULL DEFAULT 'Active' COMMENT '|s',
   `user__Notes` text,
@@ -148,8 +149,8 @@ CREATE TABLE `sulata_users` (
   `user__dbState` enum('Live','Deleted') NOT NULL,
   `user__IP` varchar(15) NOT NULL DEFAULT '127.0.0.1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-INSERT INTO `sulata_users` (`user__ID`, `user__Name`, `user__UID`, `user__Email`, `user__Password`, `user__Picture`, `user__Status`, `user__Notes`, `user__Theme`, `user__Type`, `user__Sort_Order`, `user__Password_Reset`, `user__Last_Action_On`, `user__Last_Action_By`, `user__dbState`, `user__IP`) VALUES
-(1, 'SuperUser', '5f9e51db18273', '', '', '', 'Active', 'Nothing.', 'default', 'Private', 10, 'Yes', '2020-11-03 12:19:23', 'SuperUser', 'Live', '127.0.0.1');
+INSERT INTO `sulata_users` (`user__ID`, `user__Name`, `user__UID`, `user__Email`, `user__Password`,`user__Temp_Password`, `user__Picture`, `user__Status`, `user__Notes`, `user__Theme`, `user__Type`, `user__Sort_Order`, `user__Password_Reset`, `user__Last_Action_On`, `user__Last_Action_By`, `user__dbState`, `user__IP`) VALUES
+(1, 'SuperUser', '5f9e51db18273', '5f9e51db18273', '', '', '', 'Active', 'Nothing.', 'default', 'Private', 10, 'Yes', '2020-11-03 12:19:23', 'SuperUser', 'Live', '127.0.0.1');
 DROP TABLE IF EXISTS `sulata_user_groups`;
 CREATE TABLE `sulata_user_groups` (
   `usergroup__ID` int(11) NOT NULL,
