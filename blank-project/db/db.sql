@@ -61,8 +61,7 @@ INSERT INTO `sulata_links` (`link__ID`, `link__Link`, `link__File`, `link__Icon`
 (5, 'Media', 'media.php', 'fa fa-images', 60, '2019-11-28 11:28:53', 'Installer', 'Live'),
 (7, 'Pages', 'pages.php', 'fa fa-file-alt', 70, '2019-11-28 11:28:53', 'Installer', 'Live'),
 (8, 'Settings', 'settings.php', 'fa fa-cogs', 30, '2019-11-28 11:28:53', 'Installer', 'Live'),
-(9, 'Users', 'users.php', 'fa fa-user', 40, '2019-11-28 11:28:53', 'Installer', 'Live'),
-(27, 'Faqs2', 'faqs2.php', '', 0, '2020-11-03 13:51:25', 'Installer', 'Live');
+(9, 'Users', 'users.php', 'fa fa-user', 40, '2019-11-28 11:28:53', 'Installer', 'Live');
 DROP TABLE IF EXISTS `sulata_media`;
 CREATE TABLE `sulata_media` (
   `media__ID` int(11) NOT NULL,
