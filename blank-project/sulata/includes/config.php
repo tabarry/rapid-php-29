@@ -5,6 +5,12 @@
  * Version: #VERSION#, November 2020
  * Project Creation Date: #DATE#
  */
+//Gzip output
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+    ob_start('ob_gzhandler');
+} else {
+    ob_start();
+}
 //Error reporting
 error_reporting("E_ALL & ~E_NOTICE & ~E_DEPRECATED");
 //ini_set('display_errors',1);
