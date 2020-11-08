@@ -14,7 +14,7 @@ hr{
 #login a{
     color: rgba(255,255,255,0.9);
 }
-#login input[type=email],input[type=password]{
+#login input[type=email],#login input[type=password]{
     background-color: rgba(255,255,255,0.9);
     border:10px solid rgba(255,255,255,0.7);
     margin-top: 10px;
@@ -23,6 +23,7 @@ hr{
     border-radius: 5px;
     display: block;
 }
+
 #login ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgba(0,0,0,0.7);
     opacity: 1; /* Firefox */
