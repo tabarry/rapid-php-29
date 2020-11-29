@@ -120,9 +120,9 @@ $setInsertSql = $setInsertSql . '';
 
 $remotePath = $appPath . $_POST['frmSubFolder'] . '/' . $_POST['frmFormsetvalue'] . '-remote.php';
 $fieldsToShowRemote .= "
-, CONCAT('<button class=\'jtable-command-button jtable-edit-command-button\' onclick=\\\"window.location.href=\'" . $_POST['frmFormsetvalue'] . "-update.php/'," . $_POST['primary'] . ",'/\'\\\"','-',' title=\'Edit Record\'><span>Edit Record</span></button>') AS edit    
+, CONCAT('<button class=\'jtable-command-button jtable-edit-command-button\' onclick=\\\"window.location.href=\'" . $_POST['frmFormsetvalue'] . "-update.php/'," . $_POST['primary'] . ",'/\'\\\"','-',' title=\'Edit Record\'><span>Edit Record</span></button>') AS edit
 ";
-$remoteCode = "<?php    
+$remoteCode = "<?php
 include('../sulata/includes/config.php');
 include('../sulata/includes/functions.php');
 include('../sulata/includes/get-settings.php');
@@ -152,10 +152,10 @@ if (\$do == \"add\") {
 
 //
 //Validate entire form in one go using the DB Structure
-//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''   
+//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''
     suProcessForm(\$dbs_" . $_POST['table'] . ",\$validateAsArray);
 " . $validateAddRemote . "
-        
+
 //Print validation errors on parent
     suValdationErrors(\$vError);
 
@@ -163,7 +163,7 @@ if (\$do == \"add\") {
 " .
         $remoteCodeAutoInsert
         . "
-    
+
 //add record
     \$extraSql = '';
 " . $extraSqlx1 . $extraSqlx2 . $extraSqlx3 . "
@@ -194,7 +194,7 @@ if (\$do == \"add\") {
         \$max_id = \$result['insert_id'];
         //Upload files
         " . $uploadCheck . "
-            
+
         /*POST INSERT PLACE*/
         " . $addCheckBoxRemote . "
         if (\$_POST['referrer'] == '') {
@@ -224,29 +224,29 @@ if (\$do == \"update\") {
 //Validate
     \$vError = array();
 
-    
+
 //Validate entire form in one go using the DB Structure
-//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''   
+//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''
 
     //Reset optional
    " . $resetUploadValidation . "
-    
+
     suProcessForm(\$dbs_" . $_POST['table'] . ",\$validateAsArray);
     " . $validateAddRemote . "
 //Print validation errors on parent
     suValdationErrors(\$vError);
-    
+
 //Get autocomplete insert ids
 " .
         $remoteCodeAutoInsert
         . "
-            
+
 //update record
     \$extraSql = '';
 " . $extraSqlx1 . $extraSqlx2 . $extraSqlx3 . "
     {$password_condition}
 
-    
+
         \$sql = \"UPDATE " . $_POST['table'] . " SET " . $setInsertSql . " .\$extraSql.\" WHERE " . $_POST['primary'] . "='\" . \$_POST['" . $_POST['primary'] . "'] . \"'\";
     \$result = suQuery(\$sql);
 
@@ -293,17 +293,17 @@ if (\$do == \"delete\") {
 //Delete from database by updating just the state
     //make a unique id attach to previous unique field
     \$uid = uniqid() . '-';
-    
+
         \$sql = \"UPDATE " . $_POST['table'] . " SET " . $_POST['uniqueField'] . "=CONCAT('\" . \$uid . \"'," . $_POST['uniqueField'] . "), " . $fieldPrefix . "__Last_Action_On ='\" . date('Y-m-d H:i:s') . \"'," . $fieldPrefix . "__Last_Action_By='\" . \$_SESSION[SESSION_PREFIX . 'user__Name'] . \"', " . $fieldPrefix . "__dbState='Deleted' WHERE " . $_POST['primary'] . " = '\" . \$id . \"'\";
     \$result = suQuery(\$sql);
-    
+
     if (\$origin) {
         \$origin = ADMIN_URL . \$origin . PHP_EXTENSION . '/';
         \$js = \"parent.window.location.href='\" . \$origin . \"'\";
         suPrintJS(\$js);
         exit;
     }
-    
+
 " . $deleteCheckBoxRemote . "
 
 }
@@ -315,7 +315,7 @@ if (\$do == \"restore\") {
     suCheckRef();
     \$id = suSegment(2);
 
-    
+
         \$sql = \"UPDATE " . $_POST['table'] . " SET " . $_POST['uniqueField'] . "=SUBSTR(" . $_POST['uniqueField'] . ",\".(UID_LENGTH + 1).\"), " . $fieldPrefix . "__Last_Action_On ='\" . date('Y-m-d H:i:s') . \"'," . $fieldPrefix . "__Last_Action_By='\" . \$_SESSION[SESSION_PREFIX . 'user__Name'] . \"', " . $fieldPrefix . "__dbState='Live' WHERE " . $_POST['primary'] . " = '\" . \$id . \"'\";
     \$result = suQuery(\$sql);
     if (\$result['errno'] > 0) {
@@ -372,11 +372,11 @@ if (\$do == \"update-single\") {
     \$vError = array();
 
 //Validate entire form in one go using the DB Structure
-//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''   
+//To skip validation set '*' to '' like: \$dbs_" . $_POST['table'] . "['" . $_POST['primary'] . "_req']=''
 
     //Reset optional
    " . $resetUploadValidation . "
-    
+
     suProcessForm(\$dbs_" . $_POST['table'] . ",\$validateAsArray);
     " . $validateAddRemote . "
 //Print validation errors on parent
@@ -385,7 +385,7 @@ if (\$do == \"update-single\") {
 
     \$sql = \"UPDATE " . $_POST['table'] . " SET \".\$_POST['_____field_____name'].\"='\" . " . $suStripUnstrip . "(\$_POST['_____xx_____'.\$fld ]) . \"' WHERE " . $_POST['primary'] . "='\" . \$_POST['_____xx_____" . $_POST['primary'] . "'] . \"'\";
     \$result = suQuery(\$sql);
-   
+
 
     if (\$result['errno'] > 0) {
         if (\$result['errno'] == 1062) {
@@ -414,19 +414,19 @@ if (\$do == \"update-single\") {
             parent.\$(\"#message-area\").show();
             parent.\$(\"#message-area\").html(\"' . SINGLE_UPDATE_MESSAGE . '\");
             parent.\$(\"html, body\").animate({ scrollTop: parent.$(\"html\").offset().top }, \"slow\");
-            
+
             parent.\$(\"#_____wrapper_____' . \$_POST['_____field_____name'] . '_'.\$max_id.'\").html(parent.\$(\"#_____xx_____' . \$_POST['_____field_____name'] . '_'.\$max_id.'\").val());
             parent.\$(\"#'.\$_POST['_____form_____name'].'\").hide();
             parent.\$(\"#_____wrapper_____'.\$_POST['_____field_____name'].'_'.\$max_id.'\").show();
         ');
     }
-}    
+}
 
-            
+
 ";
 $remoteCode = $remoteCode . $remoteCodeAutoComplete;
 $remoteCode .= "
-?>    
+?>
 ";
 //Write remote code
 suWrite($remotePath, $remoteCode);

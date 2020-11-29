@@ -20,6 +20,9 @@ body{
     color: rgba(0,0,0,0.8);
     margin: 20px 20px 20px 20px;
 }
+.strike-through{
+  text-decoration: line-through;
+}
 .page{
     background-color: rgba(255,255,255,0.9);
     padding: 30px;
@@ -113,10 +116,10 @@ footer{
     border-radius: 3px/10px; /* horizontal radius / vertical radius */
     text-decoration: none;
     background-color: rgba(255,255,255,0.3);
-    font-weight: 550;    
+    font-weight: 550;
 }
 #launchpad p a:hover{
-    text-decoration: none;   
+    text-decoration: none;
     background-color: rgba(255,255,255,0.6);
     transition: 0.3s;
 }
@@ -167,8 +170,8 @@ footer{
 
 
 /* MEDIA QUERIES */
-@media (min-width:280px)  { 
-    /* smartphones, iPhone, portrait 480x320 phones */ 
+@media (min-width:280px)  {
+    /* smartphones, iPhone, portrait 480x320 phones */
     .launcher{
         margin-top: 20px;
     }
@@ -177,8 +180,8 @@ footer{
         margin: 10px 0px 10px 0px;
     }
 }
-@media (min-width:320px)  { 
-    /* smartphones, iPhone, portrait 480x320 phones */ 
+@media (min-width:320px)  {
+    /* smartphones, iPhone, portrait 480x320 phones */
     .launcher{
         margin-top: 20px;
     }
@@ -187,7 +190,7 @@ footer{
         margin: 10px 0px 10px 0px;
     }
 }
-@media (min-width:481px)  { 
+@media (min-width:481px)  {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .launcher{
         margin-top: 20px;
@@ -197,7 +200,7 @@ footer{
         margin: 10px 0px 10px 0px;
     }
 }
-@media (min-width:641px)  { 
+@media (min-width:641px)  {
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .launcher{
         margin-top: 20px;
@@ -207,7 +210,7 @@ footer{
         margin: 10px 0px 10px 0px;
     }
 }
-@media (min-width:961px)  { 
+@media (min-width:961px)  {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
 
     .launcher{
@@ -219,7 +222,7 @@ footer{
         margin: 10px 0px 10px 0px;
     }
 }
-@media (min-width:1025px) { 
+@media (min-width:1025px) {
     /* big landscape tablets, laptops, and desktops */
     .launcher {
         margin-top: 5px;
@@ -231,7 +234,7 @@ footer{
         margin: 20px 0px 20px 0px;
     }
 }
-@media (min-width:1281px) { 
+@media (min-width:1281px) {
     /* hi-res laptops and desktops */
     .launcher {
         margin-top: 5px;
@@ -278,10 +281,11 @@ footer{
     box-sizing: border-box;
 }
 .ui-state-default{
+    background-image: none !important;
     border-top: 1px solid rgba(32,109,146,0.5);
     border-bottom: 1px solid rgba(32,109,146,0.5);
     width: 100%;
-    background-color: rgba(32,109,146,0.1);
+    background-color: rgba(255,255,255,0.5) !important;
     box-sizing: border-box;
     list-style: none;
     padding: 5px;

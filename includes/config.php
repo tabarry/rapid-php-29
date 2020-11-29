@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 //ini_set('display_errors',1);
 define('VERSION', '29');
 $version = "RP " . VERSION; //If this is changed, please also change config.php in sulata/includes folder
-$debug = TRUE;
+$debug = FALSE;
 $sitePath = '../' . $_POST['folder'] . '/sulata/';
 $appPath = '../' . $_POST['folder'] . '/';
 $backupPath = '../' . $_POST['folder'] . '/backup/';

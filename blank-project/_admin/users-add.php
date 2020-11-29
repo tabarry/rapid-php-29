@@ -130,9 +130,9 @@ $password = suGeneratePassword();
                                                         &nbsp;
                                                         <?php if ($addAccess == TRUE) { ?>
                                                           <!-- MODAL WINDOW -->
-                                                          <a title="add new.." href="javascript:;" data-toggle="modal" data-target="#groups-add"><i class="fa fa-plus"></i></a>
+                                                          <a title="add new.." href="javascript:;" data-toggle="modal" data-target="#groups-add" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i></a>
                                                           <?php suModalWindow('groups-add', ADMIN_URL . 'groups-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
-                                                          
+
                                                              <a onclick="suReload2('checkboxLinkArea', '<?php echo ADMIN_URL; ?>', '<?php echo suCrypt('sulata_groups'); ?>', '<?php echo suCrypt('group__ID'); ?>', '<?php echo suCrypt('group__Name'); ?>', '<?php echo suCrypt('sulata_user_groups'); ?>', '<?php echo suCrypt('usergroup__Group'); ?>', '<?php echo suCrypt('usergroup__User'); ?>', '<?php echo suCrypt($id); ?>');" href="javascript:;"><i class="fa fa-undo"></i></a>
                                                         <?php } ?>
                                                     </th>
@@ -163,7 +163,7 @@ $password = suGeneratePassword();
                                         </div>
 
                                     </div>
-                                    <p class="text-right mt-1">
+                                    <p class="text-right mt-3">
                                         <?php
                                         $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', $arg);

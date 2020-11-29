@@ -76,7 +76,8 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
 }
 // Name the iframe for regular pages and overlay pages
 if($_GET['overlay']=='yes'){
-  $form_target = 'remote-overlay';
+  $rand = rand(1000,9999);
+  $form_target = 'remote_overlay_'.$rand;
 }else{
   $form_target = 'remote';
 }

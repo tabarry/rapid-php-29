@@ -285,7 +285,7 @@ if (suSegment(2) == 'duplicate') {
                                             ?>
                                         </tbody>
                                     </table>
-                                    <p class="text-right mt-1">
+                                    <p class="text-right mt-3">
                                         <?php
                                         $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', $arg);

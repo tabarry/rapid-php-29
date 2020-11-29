@@ -58,7 +58,7 @@ if ($_POST['frmDetailsSourceText'] != 'Checkbox Text..') {
                 <?php if (\$addAccess == 'true') { ?>
 
                   <!-- MODAL WINDOW -->
-                  <a title=\"Add new record..\" href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#".$newPage."-add\"><i class=\"fa fa-plus\"></i></a>
+                  <a class=\"btn btn-sm btn-dark\" title=\"Add new record..\" href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#".$newPage."-add\"><i class=\"fa fa-plus\"></i></a>
                   <?php suModalWindow('".$newPage."-add', ADMIN_URL . '".$newPage."-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
 
                 <a onclick=\"suReload2('checkboxLinkArea_" . $t1 . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $t1 . "'); ?>','<?php echo suCrypt('" . $f1 . "'); ?>','<?php echo suCrypt('" . $f2 . "'); ?>','<?php echo suCrypt('" . $t1a . "'); ?>','<?php echo suCrypt('" . $f1a . "'); ?>','<?php echo suCrypt('" . $f2a . "'); ?>','<?php echo suCrypt(\$id); ?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>
@@ -162,9 +162,18 @@ suQuery(\$sql);
 $addCheckBoxRemote = "
 //Add details data
 for (\$i = 0; \$i <= sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
-            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . " __Last_Action_On='\".date(' Y-m-d H:i:s').\"', " . $prefix . " __Last_Action_By='\".\$_SESSION[SESSION_PREFIX . ' user__Name'] .\"'\"; suQuery(\$sql); } ";
+            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . "__Last_Action_On='\".date('Y-m-d H:i:s').\"', " . $prefix . "__Last_Action_By='\".\$_SESSION[SESSION_PREFIX . 'user__Name'] .\"'\";
+            suQuery(\$sql);
+          }//For ends ";
     //update remote
-    $updateCheckBoxRemote = " //update details data //Delete privious data \$sql=\"DELETE FROM " . $t1a . " WHERE " . $f2a . "='\".\$max_id.\"' \"; suQuery(\$sql); for (\$i=0; \$i <=sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
-            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . " __Last_Action_On='\".date(' Y-m-d H:i:s').\"', " . $prefix . " __Last_Action_By='\".\$_SESSION[SESSION_PREFIX . ' user__Name'] .\"'\"; suQuery(\$sql); } ";
+    $updateCheckBoxRemote = " //update details data
+    //Delete previous data
+    \$sql=\"DELETE FROM " . $t1a . " WHERE " . $f2a . "='\".\$max_id.\"' \";
+    suQuery(\$sql);
+    for (\$i=0; \$i <=sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
+            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . "__Last_Action_On='\".date('Y-m-d H:i:s').\"', " . $prefix . "__Last_Action_By='\".\$_SESSION[SESSION_PREFIX . 'user__Name'] .\"'\";
+            suQuery(\$sql);
+
+        }//For ends ";
 }
 ?>

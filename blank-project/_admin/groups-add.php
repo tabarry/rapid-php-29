@@ -158,7 +158,7 @@ $pageTitle = 'Add Groups';
                                         </tbody>
                                     </table>
                                 </div>
-                                <p class="text-right mt-1">
+                                <p class="text-right mt-3">
                                     <?php
                                     $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                     echo suInput('input', $arg);
