@@ -41,8 +41,8 @@ if (!function_exists('suFrameBuster')) {
 
     function suFrameBuster($url = ACCESS_DENIED_URL) {
         suPrintJs("
-            if (parent.frames.length 
-<1) { 
+            if (parent.frames.length
+<1) {
                 parent.window.location.href = '$url';
             }
         ");
@@ -75,7 +75,12 @@ if (!function_exists('suIsMobile')) {
 
 if (!function_exists('suIframe')) {
 
-    function suIframe($debug = DEBUG, $name = 'remote') {
+    function suIframe($name = 'remote', $debug = DEBUG) {
+      //Build iframe name
+      global $form_target;
+      if($name == 'remote'){
+        $name=$form_target;
+      }
         if ($debug == TRUE) {
             $display = 'block';
         } else {
@@ -84,7 +89,7 @@ if (!function_exists('suIframe')) {
 
         echo "
 <div style='clear:both'></div>
-<div style='height:35px;line-height:35px;font-family:Arial;color:#000;background-color:rgba(250,237,39,1);display:{$display};'>&nbsp;This is debug window. Set define('DEBUG', FALSE) in config.php file to hide it.</div>
+<div style='height:35px;line-height:35px;font-family:Arial;color:#000;background-color:rgba(250,237,39,1);display:{$display};'>&nbsp;This is debug window. Set define('DEBUG', FALSE) in config.php file to hide it. (iframe name: {$name})</div>
 <iframe frameborder='0' name='{$name}' id='{$name}' width='100%' height='300' style='display:{$display};border:1px solid rgba(250,237,39,1);'/>
 Sorry, your browser does not support frames.
 </iframe>
@@ -530,6 +535,8 @@ if (!function_exists('suCheckPagePermissions')) {
                     $permissions = json_decode($permissions, 1);
                     $access = array_merge($access, $permissions);
                 }
+                //Below line is added to allow 'other' section in remote.
+                array_push($access, $module . '-other');
             }
             //If not super admin group, then check for permissions
             if (!in_array($getSettings['super_admin_group_id'], $groups_allowed)) {
@@ -944,7 +951,7 @@ if (!function_exists('suBarChart')) {
             $onclick = '';
         }
         echo"
-        <div>&nbsp;</div>    
+        <div>&nbsp;</div>
         <div $title $onclick style='width:{$width};height:20px;line-height:20px;border:1px solid #CCC;;background-color:#EEE;'>
             <div style='width:{$percentValue};height:18px;line-height:18px;background-color:{$fillColor};{$cursor}'>
             </div>
@@ -1476,7 +1483,7 @@ if (!function_exists('suMakeInlineEdit')) {
     function suMakeInlineEdit($fld_name, $pageset_name, $fld_value, $id_fld_name, $id_fld_value) {
         global $inlineEditAccess;
         if ($inlineEditAccess == TRUE) {
-            $frm = '<form name="inlineForm_' . $fld_name . '_' . $id_fld_value . '" id="inlineForm_' . $fld_name . '_' . $id_fld_value . '" method="post" target="remote" class="su-hide" action="' . ADMIN_URL . $pageset_name . '-remote' . PHP_EXTENSION . '/update-single/">'
+            $frm = '<form name="inlineForm_' . $fld_name . '_' . $id_fld_value . '" id="inlineForm_' . $fld_name . '_' . $id_fld_value . '" method="post" target="<?php echo $form_target;?>" class="su-hide" action="' . ADMIN_URL . $pageset_name . '-remote' . PHP_EXTENSION . '/update-single/">'
                     . '<input autocomplete="off" type="text" name="_____xx_____' . $fld_name . '" id="_____xx_____' . $fld_name . '_' . $id_fld_value . '" class="form-control" required="required" value="' . $fld_value . '" onkeyup="doInlineSubmit(\'inlineForm_' . $fld_name . '_' . $id_fld_value . '\', \'' . $fld_name . '_' . $id_fld_value . '\', event)" onblur="doToggleInlineFields(\'inlineForm_' . $fld_name . '_' . $id_fld_value . '\', \'' . $fld_name . '_' . $id_fld_value . '\', \'hide_form\')" />'
                     . '<input type="hidden" name="_____xx_____' . $id_fld_name . '" value="' . $id_fld_value . '"/>'
                     . '<input type="hidden" id="_____original_____' . $fld_name . '" name="_____original_____' . $fld_name . '" value="' . $fld_value . '"/>

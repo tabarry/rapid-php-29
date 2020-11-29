@@ -55,7 +55,7 @@ $pageTitle = 'Add settings';
                                     <a href="<?php echo ADMIN_URL; ?>settings<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a>
                                 </div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>settings-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>settings-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
 
                                 <div class="gallery clearfix">
                                     <div class="row">

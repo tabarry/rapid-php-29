@@ -220,12 +220,12 @@ if (suSegment(1) == 'stream-pdf' && $downloadAccessPDF == TRUE) {
                                                     <?php } ?>
                                                     <!-- DELETE -->
                                                     <?php if ($deleteAccess == TRUE) { ?>
-                                                        <a title="<?php echo DELETE; ?>" id="card_<?php echo $row['faq__ID']; ?>_del" onclick="return delById('card_<?php echo $row['faq__ID']; ?>', '<?php echo CONFIRM_DELETE_RESTORE; ?>')" href="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/delete/<?php echo $row['faq__ID']; ?>/" target="remote"><i class="fa fa-times text-danger"></i></a>
+                                                        <a title="<?php echo DELETE; ?>" id="card_<?php echo $row['faq__ID']; ?>_del" onclick="return delById('card_<?php echo $row['faq__ID']; ?>', '<?php echo CONFIRM_DELETE_RESTORE; ?>')" href="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/delete/<?php echo $row['faq__ID']; ?>/" target="<?php echo $form_target;?>"><i class="fa fa-times text-danger"></i></a>
                                                     <?php } ?>
 
                                                     <!-- RESTORE -->
                                                     <?php if ($restoreAccess == TRUE) { ?>
-                                                        <a title="<?php echo RESTORE; ?>" id="card_<?php echo $row['faq__ID']; ?>_restore" href="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/restore/<?php echo $row['faq__ID']; ?>/" target="remote" style="display:none"><i class="fa fa-undo"></i></a>
+                                                        <a title="<?php echo RESTORE; ?>" id="card_<?php echo $row['faq__ID']; ?>_restore" href="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/restore/<?php echo $row['faq__ID']; ?>/" target="<?php echo $form_target;?>" style="display:none"><i class="fa fa-undo"></i></a>
                                                     <?php } ?>
 
 
@@ -244,11 +244,11 @@ if (suSegment(1) == 'stream-pdf' && $downloadAccessPDF == TRUE) {
                             ?>
                             <!-- DOWNLOAD CSV -->
                             <?php if ($downloadAccessCSV == TRUE && $numRows > 0) { ?>
-                                <p class="text-right mb-2"><a target="remote" href="<?php echo ADMIN_URL; ?>faqs<?php echo PHP_EXTENSION; ?>/stream-csv/" class="btn btn-dark nounderline"><i class="fa fa-download"></i> <?php echo DOWNLOAD_CSV; ?></a></p>
+                                <p class="text-right mb-2"><a target="<?php echo $form_target;?>" href="<?php echo ADMIN_URL; ?>faqs<?php echo PHP_EXTENSION; ?>/stream-csv/" class="btn btn-dark nounderline"><i class="fa fa-download"></i> <?php echo DOWNLOAD_CSV; ?></a></p>
                             <?php } ?>
                             <!-- DOWNLOAD PDF -->
                             <?php if ($downloadAccessPDF == TRUE && $numRows > 0) { ?>
-                            <p class="text-right mb-2"><a target="remote" href="<?php echo ADMIN_URL; ?>faqs<?php echo PHP_EXTENSION; ?>/stream-pdf/" class="btn btn-dark"><i class="fa fa-download"></i> <?php echo DOWNLOAD_PDF; ?></a></p>
+                            <p class="text-right mb-2"><a target="<?php echo $form_target;?>" href="<?php echo ADMIN_URL; ?>faqs<?php echo PHP_EXTENSION; ?>/stream-pdf/" class="btn btn-dark"><i class="fa fa-download"></i> <?php echo DOWNLOAD_PDF; ?></a></p>
                                 <p>&nbsp;</p>
                             <?php } ?>
                             <?php if ($searchAccess == TRUE) { ?>                                

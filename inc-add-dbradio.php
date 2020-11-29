@@ -24,15 +24,19 @@ $fieldPrefix1 = $fieldPrefix1[0];
 $addCode .="
 <div class=\"col-12 col-md-" . $_POST['frmColumnCount'][$i] . "\">        
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:
-<?php if (\$addAccess == 'true') { ?>    
-<a title=\"Add new record..\" rel=\"prettyPhoto[iframes]\" href=\"<?php echo ADMIN_URL; ?>" . $addpage . "-add<?php echo PHP_EXTENSION;?>/?overlay=yes&iframe=true&width=80%&height=100%\"><i class=\"fa fa-plus\"></i></a>
+<?php if (\$addAccess == 'true') { ?>
 
-<a onclick=\"suReload3('radioLinkArea_" . $_POST['frmField'][$i] . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $table . "',TRUE);?>','<?php echo suCrypt('" . $fieldId . "',TRUE);?>','<?php echo suCrypt('" . $fieldText . "',TRUE);?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>    
-<?php } ?>    
+<!-- MODAL WINDOW -->
+<a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#{$addpage}-add\"><i class=\"fa fa-plus\"></i></a>
+<?php suModalWindow('" . $addpage . "-add', ADMIN_URL . '" . $addpage . "-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
+
+<a onclick=\"suReload3('radioLinkArea_" . $_POST['frmField'][$i] . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $table . "',TRUE);?>','<?php echo suCrypt('" . $fieldId . "',TRUE);?>','<?php echo suCrypt('" . $fieldText . "',TRUE);?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>
+
+<?php } ?>
 </label>
-                                <div id=\"radioLinkArea_" . $_POST['frmField'][$i] . "\">
+<div id=\"radioLinkArea_" . $_POST['frmField'][$i] . "\">
 
-                                <?php
+    <?php
                                 
                                 \$sql = \"SELECT " . $fieldId . " AS f1, " . $fieldText . " AS f2 FROM " . $table . " where ".$fieldPrefix1."__dbState='Live' ORDER BY f2\";
                                 echo suMakeRadio(\$sql, '" . $_POST['frmField'][$i] . "',\$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req'], " . $thisVal . ");

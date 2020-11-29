@@ -49,10 +49,10 @@ $colData='';
 $sortCode .= "
  <div class=\"row mb-2\">
                                 <div class=\"col-6\"><h2><?php echo \$pageTitle; ?></h2></div>
-                                <div class=\"col-6 text-right\"><a href=\"<?php echo ADMIN_URL; ?>".$_POST['frmFormsetvalue']."<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo \$_GET['overlay']; ?>\" class=\"btn btn-dark\"><i class=\"fa fa-table\"></i></a></div>
-                            </div>   
-<!-- TABLE -->                  
-<form class=\"form-horizontal\" action=\"<?php echo ADMIN_URL; ?>" . $_POST['frmFormsetvalue'] . "-remote<?php echo PHP_EXTENSION; ?>/sort/\" accept-charset=\"utf-8\" name=\"suForm\" id=\"suForm\" method=\"post\" target=\"remote\" >
+                                <div class=\"col-6 text-right\"><a href=\"<?php echo ADMIN_URL; ?>".$_POST['frmFormsetvalue']."<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo \$_GET['overlay']; ?>\"><i class=\"fa fa-table\"></i></a></div>
+                            </div>
+<!-- TABLE -->
+<form class=\"form-horizontal\" action=\"<?php echo ADMIN_URL; ?>" . $_POST['frmFormsetvalue'] . "-remote<?php echo PHP_EXTENSION; ?>/sort/\" accept-charset=\"utf-8\" name=\"suForm\" id=\"suForm\" method=\"post\" target=\"<?php echo \$form_target;?>\" >
    <ul id=\"sortable\">
         $fieldsToShow
 <?php
@@ -86,11 +86,11 @@ if (!\$_GET['sr']) {
     <?php } ?>
 
                                 </ul>
-                                <p class=\"text-right\">
+                                <p class=\"text-right mt-2\">
                                         <?php
                                         \$arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', \$arg);
-                                        ?>                              
+                                        ?>
                                     </p>
                                 </form>
 <!-- /TABLE -->

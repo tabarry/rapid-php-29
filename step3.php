@@ -227,7 +227,7 @@ set_time_limit(0);
                                     echo $frmFormsetvalue = str_replace('_', '-', $frmFormsetvalue);
                                     ?>"/>
                                     <label>*Sub Folder Name:</label>
-                                    <input type="text" name="frmSubFolder" id="frmSubFolder" value="_admin"/>          
+                                    <input type="text" name="frmSubFolder" id="frmSubFolder" value="_admin"/>
                                     <input type="hidden" name="unique" value="<?php echo $unique; ?>"/>
                                     <input type="hidden" name="uniqueField" value="<?php echo $uniqueField; ?>"/>
 
@@ -242,7 +242,7 @@ set_time_limit(0);
                                     <select name="frmDetailsSourceValue" id="frmDetailsSourceValue" disabled1="true" class="select">
                                         <option>Checkbox Value..</option>
                                         <?php echo tableDd($_POST["db"], ''); ?>
-                                    </select> 
+                                    </select>
                                     <label>Detail Table Destination:</label>
 
                                     <select name="frmDetailsDestText" id="frmDetailsDestText" disabled1="true" class="select">
@@ -252,7 +252,7 @@ set_time_limit(0);
                                     <select name="frmDetailsDestValue" id="frmDetailsDestValue" disabled1="true" class="select">
                                         <option>Checked field goes in..</option>
                                         <?php echo tableDd($_POST["db"], ''); ?>
-                                    </select> 
+                                    </select>
 
 
 
@@ -290,7 +290,7 @@ set_time_limit(0);
                         <input type="hidden" name="db" value="<?php echo $_POST['db']; ?>"/>
                         <input type="hidden" name="folder" id="folder" value=""/>
                     </form>
-                    <?php suIframe('remote_dbs'); ?> 
+                    <?php suIframe('remote_dbs'); ?>
 
                     <p>
                         <input type="button" name="Submit" value="Generate" id="generate" onclick="submitAll();"/>

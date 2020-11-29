@@ -74,6 +74,12 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
     define('DB_USER', '#DB_USER#');
     define('DB_PASSWORD', '#DB_PASSWORD#');
 }
+// Name the iframe for regular pages and overlay pages
+if($_GET['overlay']=='yes'){
+  $form_target = 'remote-overlay';
+}else{
+  $form_target = 'remote';
+}
 //Display errors
 if (DEBUG == TRUE) {
     ini_set('display_errors', 1);

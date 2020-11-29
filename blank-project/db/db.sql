@@ -77,7 +77,7 @@ CREATE TABLE `sulata_pages` (
   `page__ID` int(11) NOT NULL,
   `page__Name` varchar(64) NOT NULL COMMENT '|s',
   `page__Permalink` varchar(64) NOT NULL,
-  `page__Position` enum('Top','Bottom','Top+Bottom') NOT NULL,
+  `page__Position` enum('Top','Bottom','Top+Bottom','Nowhere') NOT NULL,
   `page__Title` varchar(70) NOT NULL,
   `page__Keyword` varchar(255) NOT NULL,
   `page__Description` varchar(155) NOT NULL,

@@ -48,16 +48,16 @@ $sql = $sqlSelect . $sqlFrom;
                         <div id="content-area">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
-                            </div>    
+                            </div>
                             <div id="message-area" class="bg-success text-white su-hide pt-2 mb-1 mt-1">
                                 <p></p>
                             </div>
                             <!--SU STARTS-->
                             <div class="row mb-2">
                                 <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
-                                <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>media<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>" class="btn btn-dark"><i class="fa fa-table"></i></a></div>
+                                <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>media<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a></div>
                             </div>
-                             <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>media-remote<?php echo PHP_EXTENSION; ?>/sort/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                             <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>media-remote<?php echo PHP_EXTENSION; ?>/sort/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
                                     <ul id="sortable">
 
                                         <?php
@@ -92,7 +92,7 @@ $sql = $sqlSelect . $sqlFrom;
                                         <?php
                                         $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', $arg);
-                                        ?>                              
+                                        ?>
                                     </p>
                                 </form>
                             <!-- /TABLE -->
@@ -110,13 +110,13 @@ $sql = $sqlSelect . $sqlFrom;
                     </div>
                 </div>
                 <hr/>
-                <!-- FOOTER -->                        
+                <!-- FOOTER -->
                 <?php include('includes/footer.php'); ?>
             </div>
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    
-       
+
+
     <?php suIframe(); ?>
 </html>

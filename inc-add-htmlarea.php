@@ -8,9 +8,13 @@ $addCode .="
 <div class=\"col-12 col-md-" . $_POST['frmColumnCount'][$i] . "\">
                                                 <!-- //MEDIA MANAGER -->
                                                 <div class=\"pull-right\">
-                                                    <a title=\"Media..\" rel=\"prettyPhoto[iframes]\" href=\"<?php echo ADMIN_URL; ?>media<?php echo PHP_EXTENSION; ?>/?overlay=yes&iframe=true&width=80%&height=100%\"><i class=\"fa fa-images\"></i></a>
+
+                                                <!-- MODAL WINDOW -->
+                                                <a title=\"Media..\" href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#media\"><i class=\"fa fa-images\"></i></a>
+                                                <?php suModalWindow('media', ADMIN_URL . 'media'.PHP_EXTENSION.'/?overlay=yes'); ?>
+
                                                 </div>
-                                                <!-- MEDIA MANAGER// -->    
+                                                <!-- MEDIA MANAGER// -->
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
                                 <?php
                                 \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "');

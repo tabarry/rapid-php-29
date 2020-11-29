@@ -155,7 +155,7 @@ if ($_GET['do'] == 'retrieve') {
                     </div>
                     <div id="login">
                         <!-- LOGIN -->
-                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=login" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=login" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
                             <div class="row" id="form-login">
                                 <div class="col-6 col-sm-10">
                                     <div>
@@ -195,7 +195,7 @@ if ($_GET['do'] == 'retrieve') {
 
                         </form>
                         <!-- LOST PASSWORD -->
-                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=retrieve" accept-charset="utf-8" name="suForm2" id="suForm2" method="post" target="remote" class="su-hide">
+                        <form action="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=retrieve" accept-charset="utf-8" name="suForm2" id="suForm2" method="post" target="<?php echo $form_target;?>" class="su-hide">
                             <!-- RESET FORM -->
                             <div class="row" id="form-reset">
                                 <div class="col-8 col-sm-10">

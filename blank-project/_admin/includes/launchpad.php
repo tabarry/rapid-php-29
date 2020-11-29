@@ -25,8 +25,8 @@
                     <p><a href="<?php echo ADMIN_URL; ?>notes<?php echo PHP_EXTENSION; ?>/">Notes</a></p>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <a href="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=logout" target="remote"><i class="fa fa-power-off"></i></a>
-                    <p><a href="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=logout" target="remote">Log Out</a></p>
+                    <a href="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=logout" target="<?php echo $form_target;?>"><i class="fa fa-power-off"></i></a>
+                    <p><a href="<?php echo ADMIN_URL; ?>login<?php echo PHP_EXTENSION; ?>/?do=logout" target="<?php echo $form_target;?>">Log Out</a></p>
                 </div>
 
                 <div class="col-12 mb-4">

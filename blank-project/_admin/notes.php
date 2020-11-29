@@ -57,7 +57,7 @@ $pageTitle = 'Update Notes';
                             </div>
                             <!--SU STARTS-->
                             <h2><?php echo $pageTitle; ?></h2>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>notes-remote<?php echo PHP_EXTENSION; ?>/update/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>notes-remote<?php echo PHP_EXTENSION; ?>/update/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
                                 <div class="gallery clearfix">
 
                                     <div class="row">

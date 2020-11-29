@@ -46,7 +46,7 @@ if (suSegment(2) == 'duplicate') {
                 //Disable submit button
                 suToggleButton(1);
             });
-        </script> 
+        </script>
     </head>
     <body>
         <div class="page">
@@ -67,7 +67,7 @@ if (suSegment(2) == 'duplicate') {
                         <div id="content-area">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
-                            </div>    
+                            </div>
                             <div id="message-area" class="bg-success text-white su-hide pt-2 mb-1 mt-1">
                                 <p></p>
                             </div>
@@ -76,12 +76,12 @@ if (suSegment(2) == 'duplicate') {
                                 <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
                                 <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>groups<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a></div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>groups-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" onsubmit="return doCheckboxCheck();" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>groups-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" onsubmit="return doCheckboxCheck();" >
                                 <input type="hidden" name="is_checked" id="is_checked" value="0"/>
                                 <div class="gallery clearfix">
                                     <div class="row">
 
-                                        <div class="col-12 col-md-6">                
+                                        <div class="col-12 col-md-6">
                                             <label><?php echo $dbs_sulata_groups['group__Name_req']; ?><?php echo $dbs_sulata_groups['group__Name_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_groups['group__Name_html5_type'], 'name' => 'group__Name', 'id' => 'group__Name', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_groups['group__Name_max'], 'value' => suUnstrip($row['group__Name']), $dbs_sulata_groups['group__Name_html5_req'] => $dbs_sulata_groups['group__Name_html5_req'], 'class' => 'form-control');
@@ -89,7 +89,7 @@ if (suSegment(2) == 'duplicate') {
                                             ?>
                                         </div>
 
-                                        <div class="col-12 col-md-6">        
+                                        <div class="col-12 col-md-6">
                                             <label><?php echo $dbs_sulata_groups['group__Status_req']; ?><?php echo $dbs_sulata_groups['group__Status_title']; ?>:</label>
                                             <?php
                                             $options = $dbs_sulata_groups['group__Status_array'];
@@ -285,7 +285,7 @@ if (suSegment(2) == 'duplicate') {
                                             ?>
                                         </tbody>
                                     </table>
-                                    <p class="text-right">
+                                    <p class="text-right mt-1">
                                         <?php
                                         $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', $arg);
@@ -322,13 +322,13 @@ if (suSegment(2) == 'duplicate') {
                     </div>
                 </div>
                 <hr/>
-                <!-- FOOTER -->                        
+                <!-- FOOTER -->
                 <?php include('includes/footer.php'); ?>
             </div>
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    
-       
+
+
     <?php suIframe(); ?>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-//Build details table checkbox section                    
+//Build details table checkbox section
 if ($_POST['frmDetailsSourceText'] != 'Checkbox Text..') {
     $f2 = explode('.', $_POST['frmDetailsSourceText']);
     $f2 = end($f2);
@@ -38,10 +38,10 @@ if ($_POST['frmDetailsSourceText'] != 'Checkbox Text..') {
     $newPage = str_replace('_', '-', $newPage);
 
 
-    //Add sections        
-    $addCheckBox = " 
-                               
-<p class=\"clearfix\">&nbsp;</p>                                
+    //Add sections
+    $addCheckBox = "
+
+<p class=\"clearfix\">&nbsp;</p>
 <?php
 //Build checkboxes
 
@@ -50,40 +50,43 @@ if ($_POST['frmDetailsSourceText'] != 'Checkbox Text..') {
 
 ?>
 <table width=\"100%\" class=\"table table-hover table-bordered tbl\">
-                                                <thead>
-                                                    <tr>
-                                                        <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
-                                                        <th width=\"10%\" class=\"right\">
-                                                            &nbsp;
-                                                            <?php if (\$addAccess == 'true') { ?>    
-    <a title=\"Add new record..\" rel=\"prettyPhoto[iframes]\" href=\"<?php echo ADMIN_URL; ?>" . $newPage . "-add<?php echo PHP_EXTENSION;?>/?overlay=yes&iframe=true&width=100%&height=100%\"><i class=\"fa fa-plus\"></i></a>
+    <thead>
+        <tr>
+            <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
+            <th width=\"10%\" class=\"right\">
+                &nbsp;
+                <?php if (\$addAccess == 'true') { ?>
 
-    <a onclick=\"suReload2('checkboxLinkArea_" . $t1 . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $t1 . "'); ?>','<?php echo suCrypt('" . $f1 . "'); ?>','<?php echo suCrypt('" . $f2 . "'); ?>','<?php echo suCrypt('" . $t1a . "'); ?>','<?php echo suCrypt('" . $f1a . "'); ?>','<?php echo suCrypt('" . $f2a . "'); ?>','<?php echo suCrypt(\$id); ?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>    
-<?php } ?> 
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                <td colspan=\"2\">
-                                                    <div id=\"checkboxLinkArea_" . $t1 . "\">
-<?php
+                  <!-- MODAL WINDOW -->
+                  <a title=\"Add new record..\" href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#".$newPage."-add\"><i class=\"fa fa-plus\"></i></a>
+                  <?php suModalWindow('".$newPage."-add', ADMIN_URL . '".$newPage."-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
+
+                <a onclick=\"suReload2('checkboxLinkArea_" . $t1 . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $t1 . "'); ?>','<?php echo suCrypt('" . $f1 . "'); ?>','<?php echo suCrypt('" . $f2 . "'); ?>','<?php echo suCrypt('" . $t1a . "'); ?>','<?php echo suCrypt('" . $f1a . "'); ?>','<?php echo suCrypt('" . $f2a . "'); ?>','<?php echo suCrypt(\$id); ?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>
+                <?php } ?>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <td colspan=\"2\">
+            <div id=\"checkboxLinkArea_" . $t1 . "\">
+                <?php
 foreach (\$result['result'] as \$row) {
 \$chkUid = \$row['" . $f1 . "'];
     ?>
-    <label class=\"btn btn-default\"><input type=\"checkbox\" name=\"" . $f2 . "[]\" value=\"<?php echo \$chkUid; ?>\" <?php echo \$checked; ?>/> <?php echo suUnstrip(\$row['" . $f2 . "']); ?></label>
+                <label class=\"btn btn-default\"><input type=\"checkbox\" name=\"" . $f2 . "[]\" value=\"<?php echo \$chkUid; ?>\" <?php echo \$checked; ?> /> <?php echo suUnstrip(\$row['" . $f2 . "']); ?></label>
 
-    <?php
+                <?php
 }
 ?>
-</div>
-</td>
-                                                </tbody>
-                                            </table>
+            </div>
+        </td>
+    </tbody>
+</table>
 ";
 //Update code
-    $updateCheckBox = " 
-                               
-<p class=\"clearfix\">&nbsp;</p>                                
+$updateCheckBox = "
+
+<p class=\"clearfix\">&nbsp;</p>
 <?php
 //Get entered data
 \$chkArr=array();
@@ -96,23 +99,29 @@ foreach (\$result['result'] as \$row) {
 \$result = suQuery(\$sql);
 ?>
 <table width=\"100%\" class=\"table table-hover table-bordered tbl\">
-                                                <thead>
-                                                    <tr>
-                                                        <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
-                                                        <th width=\"10%\" class=\"right\">
-                                                            &nbsp;
-                                                            <?php if (\$addAccess == 'true') { ?>    
-    <a title=\"Add new record..\" rel=\"prettyPhoto[iframes]\" href=\"<?php echo ADMIN_URL; ?>" . $newPage . "-add<?php echo PHP_EXTENSION;?>/?overlay=yes&iframe=true&width=100%&height=100%\"><i class=\"fa fa-plus\"></i></a>
+    <thead>
+        <tr>
+            <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
+            <th width=\"10%\" class=\"right\">
+                &nbsp;
+                <?php if (\$addAccess == 'true') { ?>
 
-    <a onclick=\"suReload2('checkboxLinkArea_" . $t1 . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $t1 . "'); ?>','<?php echo suCrypt('" . $f1 . "'); ?>','<?php echo suCrypt('" . $f2 . "'); ?>','<?php echo suCrypt('" . $t1a . "'); ?>','<?php echo suCrypt('" . $f1a . "'); ?>','<?php echo suCrypt('" . $f2a . "'); ?>','<?php echo suCrypt(\$id); ?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>    
-<?php } ?> 
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                <td colspan=\"2\">
-                                                    <div id=\"checkboxLinkArea_" . $t1 . "\">
-    <?php
+
+                <!-- MODAL WINDOW -->
+                <a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#{$newPage}-add\"><i class=\"fa fa-plus\"></i></a>
+                <?php suModalWindow('" . $newPage . "-add', ADMIN_URL . '" . $newPage . "-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
+
+
+
+                <a onclick=\"suReload2('checkboxLinkArea_" . $t1 . "','<?php echo ADMIN_URL; ?>','<?php echo suCrypt('" . $t1 . "'); ?>','<?php echo suCrypt('" . $f1 . "'); ?>','<?php echo suCrypt('" . $f2 . "'); ?>','<?php echo suCrypt('" . $t1a . "'); ?>','<?php echo suCrypt('" . $f1a . "'); ?>','<?php echo suCrypt('" . $f2a . "'); ?>','<?php echo suCrypt(\$id); ?>');\" href=\"javascript:;\"><i class=\"fa fa-undo\"></i></a>
+                <?php } ?>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <td colspan=\"2\">
+            <div id=\"checkboxLinkArea_" . $t1 . "\">
+                <?php
 foreach (\$result['result'] as \$row) {
 \$chkUid = \$row['" . $f1 . "'];
 if (in_array(\$row['" . $f1 . "'], \$chkArr)) {
@@ -121,55 +130,41 @@ if (in_array(\$row['" . $f1 . "'], \$chkArr)) {
                                                         \$checked = '';
                                                     }
         ?>
-<label class=\"btn btn-default\"><input type=\"checkbox\" name=\"" . $f2 . "[]\" value=\"<?php echo \$chkUid; ?>\" <?php echo \$checked; ?>/> <?php echo suUnstrip(\$row['" . $f2 . "']); ?></label>     
+                <label class=\"btn btn-default\"><input type=\"checkbox\" name=\"" . $f2 . "[]\" value=\"<?php echo \$chkUid; ?>\" <?php echo \$checked; ?> /> <?php echo suUnstrip(\$row['" . $f2 . "']); ?></label>
 
-    <?php
+                <?php
 }
 ?>
 
-</div>
-</td>
-                                                </tbody>
-                                            </table>
+            </div>
+        </td>
+    </tbody>
+</table>
 
 ";
 //Validate remote
-    $validateAddRemote = "
+$validateAddRemote = "
 //Check if at least one checkbox is selected
 if (sizeof(\$_POST['" . $f2 . "'])==0) {
-    \$vError[]=VALIDATE_EMPTY_CHECKBOX;
-}  
+\$vError[]=VALIDATE_EMPTY_CHECKBOX;
+}
 ";
 
 //Delete remote
-    $deleteCheckBoxRemote = "
+$deleteCheckBoxRemote = "
 //Delete from child checkboxes table
 \$sql = \"UPDATE " . $t1a . " SET " . $prefix . "__Last_Action_On='\".date('Y-m-d H:i:s').\"', " . $prefix . "__Last_Action_By='\".\$_SESSION[SESSION_PREFIX . 'user__Name'] .\" WHERE " . $f2a . "='\".\$_POST[\"" . $_POST['primary'] . "\"].\"'\";
 suQuery(\$sql);
 ";
 
 
-    //Add remote
-    $addCheckBoxRemote = "
+//Add remote
+$addCheckBoxRemote = "
 //Add details data
-        for (\$i = 0; \$i <= sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
-            \$sql = \"INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"', $f1a='\".\$_POST['" . $f2 . "'][\$i].\"', " . $prefix . "__Last_Action_On='\".date('Y-m-d H:i:s').\"', " . $prefix . "__Last_Action_By='\".\$_SESSION[SESSION_PREFIX . 'user__Name'] .\"'\";
-            suQuery(\$sql);
-        }
-        
-";
+for (\$i = 0; \$i <= sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
+            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . " __Last_Action_On='\".date(' Y-m-d H:i:s').\"', " . $prefix . " __Last_Action_By='\".\$_SESSION[SESSION_PREFIX . ' user__Name'] .\"'\"; suQuery(\$sql); } ";
     //update remote
-    $updateCheckBoxRemote = "
-//update details data
-        //Delete privious data
-        \$sql = \"DELETE FROM " . $t1a . " WHERE " . $f2a . "='\".\$max_id.\"'\";
-        suQuery(\$sql);
-       
-        for (\$i = 0; \$i <= sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
-            \$sql = \"INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"', $f1a='\".\$_POST['" . $f2 . "'][\$i].\"', " . $prefix . "__Last_Action_On='\".date('Y-m-d H:i:s').\"', " . $prefix . "__Last_Action_By='\".\$_SESSION[SESSION_PREFIX . 'user__Name'] .\"'\";            
-            suQuery(\$sql);
-        }
-        
-";
+    $updateCheckBoxRemote = " //update details data //Delete privious data \$sql=\"DELETE FROM " . $t1a . " WHERE " . $f2a . "='\".\$max_id.\"' \"; suQuery(\$sql); for (\$i=0; \$i <=sizeof(\$_POST['" . $f2 . "'])-1; \$i++) {
+            \$sql = \" INSERT INTO " . $t1a . " SET " . $f2a . "='\".\$max_id.\"' , $f1a='\".\$_POST['" . $f2 . "'][\$i].\"' , " . $prefix . " __Last_Action_On='\".date(' Y-m-d H:i:s').\"', " . $prefix . " __Last_Action_By='\".\$_SESSION[SESSION_PREFIX . ' user__Name'] .\"'\"; suQuery(\$sql); } ";
 }
 ?>

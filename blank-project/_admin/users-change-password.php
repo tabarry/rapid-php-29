@@ -73,7 +73,7 @@ if ($_SESSION[SESSION_PREFIX . 'user__Type'] == 'Private') {
                                 echo suInfo($first_login_message);
                             }
                             ?>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>users-remote<?php echo PHP_EXTENSION; ?>/update-password/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>users-remote<?php echo PHP_EXTENSION; ?>/update-password/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" enctype="multipart/form-data">
                                 <div class="gallery clearfix">
                                     <div class="row">
 

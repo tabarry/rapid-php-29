@@ -45,7 +45,7 @@ if (suSegment(1) == '') {
                 //Disable submit button
                 suToggleButton(1);
             });
-        </script> 
+        </script>
     </head>
     <body>
         <div class="page">
@@ -66,7 +66,7 @@ if (suSegment(1) == '') {
                         <div id="content-area">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
-                            </div>    
+                            </div>
                             <div id="message-area" class="bg-success text-white su-hide pt-2 mb-1 mt-1">
                                 <p></p>
                             </div>
@@ -75,10 +75,10 @@ if (suSegment(1) == '') {
                                 <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
                                 <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>users<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a></div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>users-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>users-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" enctype="multipart/form-data">
                                 <div class="gallery clearfix">
                                     <div class="row">
-                                         <div class="col-12 col-md-6">                
+                                         <div class="col-12 col-md-6">
                                             <label><?php echo $dbs_sulata_users['user__Name_req']; ?><?php echo $dbs_sulata_users['user__Name_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_users['user__Name_html5_type'], 'name' => 'user__Name', 'id' => 'user__Name', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Name_max'], 'value' => suUnstrip($row['user__Name']), $dbs_sulata_users['user__Name_html5_req'] => $dbs_sulata_users['user__Name_html5_req'], 'class' => 'form-control');
@@ -87,7 +87,7 @@ if (suSegment(1) == '') {
                                         </div>
 
 
-                                        <div class="col-12 col-md-6">                
+                                        <div class="col-12 col-md-6">
                                             <label><?php echo $dbs_sulata_users['user__Email_req']; ?><?php echo $dbs_sulata_users['user__Email_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_users['user__Email_html5_type'], 'name' => 'user__Email', 'id' => 'user__Email', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_users['user__Email_max'], 'value' => suUnstrip($row['user__Email']), $dbs_sulata_users['user__Email_html5_req'] => $dbs_sulata_users['user__Email_html5_req'], 'class' => 'form-control');
@@ -96,7 +96,7 @@ if (suSegment(1) == '') {
                                         </div>
                                         <!-- PASSWORD FIELDS -->
                                         <div>
-                                            <div class="col-12 col-md-6 su-hide" id="user__Password-1">            
+                                            <div class="col-12 col-md-6 su-hide" id="user__Password-1">
                                                 <label><?php echo $dbs_sulata_users['user__Password_title']; ?>:
                                                     <?php if ($getSettings['show_password'] == 'Yes') { ?>
                                                         <a href="javascript:;" onclick="doShowPassword();"><i class="fa fa-eye"></i></a>
@@ -107,20 +107,20 @@ if (suSegment(1) == '') {
                                                 echo suInput('input', $arg);
                                                 ?>
                                             </div>
-                                            <div class="col-12 col-md-6 su-hide" id="user__Password-2">                                           
+                                            <div class="col-12 col-md-6 su-hide" id="user__Password-2">
                                                 <label><?php echo CONFIRM; ?> <?php echo $dbs_sulata_users['user__Password_title']; ?>:</label>
                                                 <?php
                                                 $arg = array('type' => $dbs_sulata_users['user__Password_html5_type'], 'name' => 'user__Password2', 'id' => 'user__Password2', 'maxlength' => $dbs_sulata_users['user__Password_max'], 'value' => '', 'class' => 'form-control');
                                                 echo suInput('input', $arg);
                                                 ?>
-                                            </div> 
+                                            </div>
                                             <div class="container su-hide" id="user__Password-note"><?php echo suInfo(CHANGE_PASSWORD_MESSAGE); ?></div>
                                             <p id="user__Password-change-password" class="container"><a href="javascript:;" onclick="doChangePassword('user__Password')" class="underline"><i class="fa fa-key"></i> <?php echo CHANGE_PASSWORD; ?></a></p>
                                         </div>
 
                                         <!--//-->
                                                                                 <div class="col-12"></div>
-                                        <div class="col-12 col-md-6">  
+                                        <div class="col-12 col-md-6">
 
                                             <label><?php echo $dbs_sulata_users['user__Picture_req']; ?><?php echo $dbs_sulata_users['user__Picture_title']; ?>:</label>
                                             <?php
@@ -130,23 +130,23 @@ if (suSegment(1) == '') {
                                                 $defaultImage = BASE_URL . 'files/default-image.png';
                                             }
                                             ?>
-                                                                                        <div class="imgThumb" style="background-image:url(<?php echo $defaultImage; ?>);width:100px;height:100px;"></div>    
+                                                                                        <div class="imgThumb" style="background-image:url(<?php echo $defaultImage; ?>);width:100px;height:100px;"></div>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_users['user__Picture_html5_type'], 'name' => 'user__Picture', 'id' => 'user__Picture', 'class' => 'form-control');
                                             echo suInput('input', $arg);
                                             ?>
                                             <?php if ((file_exists(ADMIN_UPLOAD_PATH . $row['user__Picture'])) && ($row['user__Picture'] != '')) { ?>
                                                 <div class="container"><a class="underline" href="<?php echo BASE_URL . 'files/' . $row['user__Picture']; ?>" target="_blank"><?php echo VIEW_FILE; ?></a></div>
-                                            <?php } ?>  
+                                            <?php } ?>
                                                                                             <div class="container"><?php echo $getSettings['allowed_image_formats']; ?></div>
                                             <?php
                                             $arg = array('type' => 'hidden', 'name' => 'previous_user__Picture', 'id' => 'previous_user__Picture', 'value' => $row['user__Picture']);
                                             echo suInput('input', $arg);
-                                            ?> 
+                                            ?>
                                         </div>
                                         <div class="col-12"></div>
                                         <?php if (suSegment(1) != '') { ?>
-                                            <div class="col-12 col-md-6">        
+                                            <div class="col-12 col-md-6">
                                                 <label><?php echo $dbs_sulata_users['user__Status_req']; ?><?php echo $dbs_sulata_users['user__Status_title']; ?>:</label>
                                                 <?php
                                                 $options = $dbs_sulata_users['user__Status_array'];
@@ -178,8 +178,12 @@ if (suSegment(1) == '') {
                                                     <th width="10%" class="right">
                                                         &nbsp;
                                                         <?php if ($addAccess == TRUE) { ?>
-                                                            <a title="Add new record.." rel="prettyPhoto[iframes]" href="<?php echo ADMIN_URL; ?>groups-add<?php echo PHP_EXTENSION; ?>/?overlay=yes&iframe=true&width=100%&height=100%"><i class="fa fa-plus"></i></a> <a onclick="suReload2('checkboxLinkArea', '<?php echo ADMIN_URL; ?>', '<?php echo suCrypt('sulata_groups'); ?>', '<?php echo suCrypt('group__ID'); ?>', '<?php echo suCrypt('group__Name'); ?>', '<?php echo suCrypt('sulata_user_groups'); ?>', '<?php echo suCrypt('usergroup__Group'); ?>', '<?php echo suCrypt('usergroup__User'); ?>', '<?php echo suCrypt($id); ?>');" href="javascript:;"><i class="fa fa-undo"></i></a>
-                                                        <?php } ?> 
+                                                          <!-- MODAL WINDOW -->
+                                                          <a title="add new.." href="javascript:;" data-toggle="modal" data-target="#groups-add"><i class="fa fa-plus"></i></a>
+                                                          <?php suModalWindow('groups-add', ADMIN_URL . 'groups-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
+
+                                                             <a onclick="suReload2('checkboxLinkArea', '<?php echo ADMIN_URL; ?>', '<?php echo suCrypt('sulata_groups'); ?>', '<?php echo suCrypt('group__ID'); ?>', '<?php echo suCrypt('group__Name'); ?>', '<?php echo suCrypt('sulata_user_groups'); ?>', '<?php echo suCrypt('usergroup__Group'); ?>', '<?php echo suCrypt('usergroup__User'); ?>', '<?php echo suCrypt($id); ?>');" href="javascript:;"><i class="fa fa-undo"></i></a>
+                                                        <?php } ?>
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -205,11 +209,11 @@ if (suSegment(1) == '') {
                                         </table>
                                     <?php } ?>
                                         <div class="col-12">
-                                            <div class="text-right">
+                                            <div class="text-right mt-1">
                                                 <?php
                                         $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                         echo suInput('input', $arg);
-                                        
+
                                         //Referrer field
                                 $arg = array('type' => 'hidden', 'name' => 'referrer', 'id' => 'referrer', 'value' => $_SERVER['HTTP_REFERER']);
                                 echo suInput('input', $arg);
@@ -226,9 +230,9 @@ if (suSegment(1) == '') {
                                     $arg = array('type' => 'hidden', 'name' => 'update_profile', 'id' => 'update_profile', 'value' => '1');
                                     echo suInput('input', $arg);
                                 }
-                                        ?>         
+                                        ?>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +247,7 @@ if (suSegment(1) == '') {
                     </div>
                 </div>
                 <hr/>
-                <!-- FOOTER -->                        
+                <!-- FOOTER -->
                 <?php include('includes/footer.php'); ?>
             </div>
         </div>

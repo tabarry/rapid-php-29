@@ -111,7 +111,7 @@ if (suSegment(2) == 'duplicate') {
     \$do = 'update';
     \$pageName = 'Update " . $pageTitle . "';
     \$pageTitle = '<span id=\"page-title\">Update</span> " . $pageTitle . "';
-    \$mode = 'edit';    
+    \$mode = 'edit';
 }
 ";
 /////////////////////////
@@ -130,21 +130,21 @@ if(!is_numeric(\$id)){
 if (\$result['num_rows'] == 0) {
     suExit(INVALID_RECORD);
 }
-  
+
 ";
 $updateCodeStart = '
     <div class="row">
                                 <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
                                 <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>'.$_POST['frmFormsetvalue'].'<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET[\'overlay\']; ?>"><i class="fa fa-table"></i></a></div>
                             </div>
-        <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>' . $_POST['frmFormsetvalue'] . '-remote<?php echo PHP_EXTENSION;?>/<?php echo $do ; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" ' . $multipart . '>
+        <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>' . $_POST['frmFormsetvalue'] . '-remote<?php echo PHP_EXTENSION;?>/<?php echo $do ; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" ' . $multipart . '>
             <div class="gallery clearfix">
                 <div class="row">';
 
 $updateCodeEnd = "
                 </div>
         <!--Child Table Place-->
-        <p class=\"text-right\">
+        <p class=\"text-right mt-1\">
         <?php
         \$arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
         echo suInput('input', \$arg);
@@ -157,7 +157,7 @@ $updateCodeEnd = "
             \$_SERVER['HTTP_REFERER']=\$_GET['referrer'];
         }
         \$arg = array('type' => 'hidden', 'name' => 'referrer', 'id' => 'referrer', 'value' => \$_SERVER['HTTP_REFERER']);
-        echo suInput('input', \$arg);                       
+        echo suInput('input', \$arg);
         //Id field
         \$arg = array('type' => 'hidden', 'name' => '" . $_POST['primary'] . "', 'id' => '" . $_POST['primary'] . "', 'value' => \$id);
         echo suInput('input', \$arg);
@@ -168,7 +168,7 @@ $updateCodeEnd = "
         echo suInput('input', \$arg);
         ?>
 
-        
+
         </form>
 ";
 $updateCode = $updateCodeStart . $addCode . $updateCodeEnd;

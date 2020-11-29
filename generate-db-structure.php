@@ -34,14 +34,14 @@
                     <select name="folder" id="folder">
                         <option value="">Select..</option>
                         <?php echo buildWww("../"); ?>
-                    </select>  
+                    </select>
 
                     <p>
                         <input type="submit" name="Submit" value="Generate" />
                     </p>
                     <p id="result"></p>
             </div>
-            <?php suIframe('remote'); ?> 
+            <?php suIframe('remote'); ?>
             <!--FOOTER-->
             <?php include('inc-footer.php'); ?>
         </div>

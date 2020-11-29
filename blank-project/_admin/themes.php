@@ -47,7 +47,7 @@ $pageTitle = 'Click to select a theme';
                             </div>
                             <!--SU STARTS-->
                             <h2><?php echo $pageTitle; ?></h2>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>notes-remote<?php echo PHP_EXTENSION; ?>/update/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >                                        <div class="row">                
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>notes-remote<?php echo PHP_EXTENSION; ?>/update/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >                                        <div class="row">                
                                     <?php
                                     $dir = '../sulata/css/themes/';
                                     $dir = scandir($dir);
@@ -59,7 +59,7 @@ $pageTitle = 'Click to select a theme';
                                         if ((!in_array($file, $exclude)) && ($file[0] != '.')) {
                                             ?>
                                             <div class="col-4"> 
-                                                <a href="<?php echo ADMIN_URL; ?>themes-remote<?php echo PHP_EXTENSION; ?>/change/<?php echo $file; ?>/" target="remote"><img class="imgTheme" src="<?php echo BASE_URL; ?>sulata/css/themes/<?php echo $file; ?>/bg.jpg" alt="<?php echo $file; ?>"/></a>
+                                                <a href="<?php echo ADMIN_URL; ?>themes-remote<?php echo PHP_EXTENSION; ?>/change/<?php echo $file; ?>/" target="<?php echo $form_target;?>"><img class="imgTheme" src="<?php echo BASE_URL; ?>sulata/css/themes/<?php echo $file; ?>/bg.jpg" alt="<?php echo $file; ?>"/></a>
                                             </div>
                                             <?php
                                         }

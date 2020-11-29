@@ -21,7 +21,7 @@ $pageTitle = 'Add Groups';
                 //Disable submit button
                 suToggleButton(1);
             });
-        </script> 
+        </script>
     </head>
     <body>
         <div class="page">
@@ -42,7 +42,7 @@ $pageTitle = 'Add Groups';
                         <div id="content-area">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
-                            </div>    
+                            </div>
                             <div id="message-area" class="bg-success text-white su-hide pt-2 mb-1 mt-1">
                                 <p></p>
                             </div>
@@ -55,12 +55,12 @@ $pageTitle = 'Add Groups';
                                     <a href="<?php echo ADMIN_URL; ?>groups<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a>
                                 </div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>groups-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" onsubmit="return doCheckboxCheck();" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>groups-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" onsubmit="return doCheckboxCheck();" >
                                 <input type="hidden" name="is_checked" id="is_checked" value="0"/>
                                 <div class="gallery clearfix">
                                     <div class="row">
 
-                                        <div class="col-12 col-md-6 col-lg-6">                
+                                        <div class="col-12 col-md-6 col-lg-6">
                                             <label><?php echo $dbs_sulata_groups['group__Name_req']; ?><?php echo $dbs_sulata_groups['group__Name_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_groups['group__Name_html5_type'], 'name' => 'group__Name', 'id' => 'group__Name', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_groups['group__Name_max'], 'value' => '', $dbs_sulata_groups['group__Name_html5_req'] => $dbs_sulata_groups['group__Name_html5_req'], 'class' => 'form-control');
@@ -68,7 +68,7 @@ $pageTitle = 'Add Groups';
                                             ?>
                                         </div>
 
-                                        <div class="col-12 col-md-6 col-lg-6">        
+                                        <div class="col-12 col-md-6 col-lg-6">
                                             <label><?php echo $dbs_sulata_groups['group__Status_req']; ?><?php echo $dbs_sulata_groups['group__Status_title']; ?>:</label>
                                             <?php
                                             $options = $dbs_sulata_groups['group__Status_array'];
@@ -158,11 +158,11 @@ $pageTitle = 'Add Groups';
                                         </tbody>
                                     </table>
                                 </div>
-                                <p class="text-right">
+                                <p class="text-right mt-1">
                                     <?php
                                     $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                     echo suInput('input', $arg);
-                                    ?>                              
+                                    ?>
                                 </p>
                                 <p>&nbsp;</p>
                             </form>
@@ -176,13 +176,13 @@ $pageTitle = 'Add Groups';
                     </div>
                 </div>
                 <hr/>
-                <!-- FOOTER -->                        
+                <!-- FOOTER -->
                 <?php include('includes/footer.php'); ?>
             </div>
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    
-       
+
+
     <?php suIframe(); ?>
 </html>

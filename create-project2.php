@@ -1,9 +1,9 @@
 <?php include('includes/include.php'); ?>
 <?php
-
 //print_array($_POST);
 
 @mkdir('../' . $_POST['directory']);
+
 //Copy folder
 //function recurse_copy($src,$dst,$directory,$db,$db_user,$db_password)
 $apiKey = substr('x' . uniqid() . uniqid() . uniqid(), 0, 32);
@@ -22,7 +22,7 @@ $sql = file_get_contents('./blank-project/db/db.sql');
 $sql = explode(';', $sql);
 for ($i = 0; $i <= sizeof($sql); $i++) {
     if ($sql[$i]) {
-        mysqli_query($cn, $sql[$i]) or die(mysqli_error($cn));
+        mysqli_query($cn, $sql[$i]) ;//or die(mysqli_error($cn));
     }
 }
 //Update default_user_password and UID
@@ -78,7 +78,7 @@ echo "
 <script>
 top.$('#result').html('" . $response . "');
 top.$('#Submit').val('Create');
-top.$('#countdown').html(''); 
+top.$('#countdown').html('');
 top.$('#Submit').attr('disabled', false);
 top.clearCounter();
 top.document.getElementById('Submit').classList.add('enabled');

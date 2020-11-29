@@ -54,12 +54,12 @@ $pageTitle = 'Add Pages';
                                     <a href="<?php echo ADMIN_URL; ?>pages<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a>
                                 </div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>pages-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>pages-remote<?php echo PHP_EXTENSION; ?>/add/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
 
                                 <div class="gallery clearfix">
                                     <div class="row">
 
-                                        <div class="col-12 col-md-4">        
+                                        <div class="col-12 col-md-4">
                                             <label><?php echo $dbs_sulata_pages['page__Name_req']; ?><?php echo $dbs_sulata_pages['page__Name_title']; ?>:</label>
                                             <?php
                                             $js = "return $('#page__Permalink').val(doSlugify(this.value,'-'));";
@@ -69,7 +69,7 @@ $pageTitle = 'Add Pages';
                                         </div>
 
 
-                                        <div class="col-12 col-md-4">        
+                                        <div class="col-12 col-md-4">
                                             <label><?php echo $dbs_sulata_pages['page__Permalink_req']; ?><?php echo $dbs_sulata_pages['page__Permalink_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_pages['page__Permalink_html5_type'], 'name' => 'page__Permalink', 'id' => 'page__Permalink', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_pages['page__Permalink_max'], 'value' => '', $dbs_sulata_pages['page__Permalink_html5_req'] => $dbs_sulata_pages['page__Permalink_html5_req'], 'class' => 'form-control');
@@ -77,7 +77,7 @@ $pageTitle = 'Add Pages';
                                             ?>
                                         </div>
 
-                                        <div class="col-12 col-md-4">        
+                                        <div class="col-12 col-md-4">
                                             <label><?php echo $dbs_sulata_pages['page__Position_req']; ?><?php echo $dbs_sulata_pages['page__Position_title']; ?>:</label>
                                             <?php
                                             $options = $dbs_sulata_pages['page__Position_array'];
@@ -115,7 +115,9 @@ $pageTitle = 'Add Pages';
                                         <div class="col-12">
                                             <label><?php echo $dbs_sulata_pages['page__Header_req']; ?><?php echo $dbs_sulata_pages['page__Header_title']; ?>:
                                                 <?php if ($addAccess == 'true') { ?>
-                                                    <a title="Add new record.." rel="prettyPhoto[iframes]" href="<?php echo ADMIN_URL; ?>headers-add<?php echo PHP_EXTENSION; ?>/?overlay=yes&iframe=true&width=80%&height=100%"><i class="fa fa-plus"></i></a>
+                                                  <!-- MODAL WINDOW -->
+                                                  <a title="Add new.." href="javascript:;" data-toggle="modal" data-target="#headers-add"><i class="fa fa-plus"></i></a>
+                                                  <?php suModalWindow('headers-add', ADMIN_URL . 'headers-add'.PHP_EXTENSION.'/?overlay=yes'); ?>
 
                                                     <a onclick="suReload('page__Header', '<?php echo ADMIN_URL; ?>', '<?php echo suCrypt('sulata_headers'); ?>', '<?php echo suCrypt('header__ID'); ?>', '<?php echo suCrypt('header__Title'); ?>');" href="javascript:;"><i class="fa fa-undo"></i></a>
                                                 <?php } ?>
@@ -128,7 +130,7 @@ $pageTitle = 'Add Pages';
                                             ?>
                                         </div>
 
-                                        
+
 
                                         <div class="col-12 col-md-12">
                                             <label><?php echo $dbs_sulata_pages['page__Content_req']; ?><?php echo $dbs_sulata_pages['page__Content_title']; ?>:</label>
@@ -142,7 +144,7 @@ $pageTitle = 'Add Pages';
                                     </div>
 
                                 </div>
-                                <p class="text-right">
+                                <p class="text-right mt-1">
                                     <?php
                                     $arg = array('type' => 'submit', 'name' => 'Submit', 'id' => 'Submit', 'value' => 'Submit', 'class' => 'btn btn-dark');
                                     echo suInput('input', $arg);
@@ -166,7 +168,7 @@ $pageTitle = 'Add Pages';
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    
-    
+
+
     <?php suIframe(); ?>
 </html>

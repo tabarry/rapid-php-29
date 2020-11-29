@@ -73,7 +73,7 @@ if (suSegment(2) == 'duplicate') {
                                 <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
                                 <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>settings<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a></div>
                             </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>settings-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>settings-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
                                 <div class="gallery clearfix">
                                     <div class="row">
                                         <div class="col-12 col-md-4 su-hide">        

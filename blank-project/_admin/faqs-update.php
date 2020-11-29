@@ -44,7 +44,7 @@ if (suSegment(2) == 'duplicate') {
                 //Disable submit button
                 suToggleButton(1);
             });
-        </script> 
+        </script>
     </head>
     <body>
         <div class="page">
@@ -65,7 +65,7 @@ if (suSegment(2) == 'duplicate') {
                         <div id="content-area">
                             <div id="error-area" class="bg-danger text-white su-hide pt-2 pb-1">
                                 <ul></ul>
-                            </div>    
+                            </div>
                             <div id="message-area" class="bg-success text-white su-hide pt-2 mb-1 mt-1">
                                 <p></p>
                             </div>
@@ -74,11 +74,11 @@ if (suSegment(2) == 'duplicate') {
                                     <div class="col-6"><h2><?php echo $pageTitle; ?></h2></div>
                                     <div class="col-6 text-right"><a href="<?php echo ADMIN_URL; ?>faqs<?php echo PHP_EXTENSION; ?>/?overlay=<?php echo $_GET['overlay']; ?>"><i class="fa fa-table"></i></a></div>
                                 </div>
-                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="remote" >
+                            <form class="form-horizontal" action="<?php echo ADMIN_URL; ?>faqs-remote<?php echo PHP_EXTENSION; ?>/<?php echo $do; ?>/" accept-charset="utf-8" name="suForm" id="suForm" method="post" target="<?php echo $form_target;?>" >
                                 <div class="gallery clearfix">
                                     <div class="row">
 
-                                        <div class="col-12">                
+                                        <div class="col-12">
                                             <label><?php echo $dbs_sulata_faqs['faq__Question_req']; ?><?php echo $dbs_sulata_faqs['faq__Question_title']; ?>:</label>
                                             <?php
                                             $arg = array('type' => $dbs_sulata_faqs['faq__Question_html5_type'], 'name' => 'faq__Question', 'id' => 'faq__Question', 'autocomplete' => 'off', 'maxlength' => $dbs_sulata_faqs['faq__Question_max'], 'value' => suUnstrip($row['faq__Question']), $dbs_sulata_faqs['faq__Question_html5_req'] => $dbs_sulata_faqs['faq__Question_html5_req'], 'class' => 'form-control');
@@ -89,7 +89,9 @@ if (suSegment(2) == 'duplicate') {
                                         <div class="col-12">
                                             <!-- //MEDIA MANAGER -->
                                             <div class="text-right">
-                                                <a title="Media.." rel="prettyPhoto[iframes]" href="<?php echo ADMIN_URL; ?>media<?php echo PHP_EXTENSION; ?>/?overlay=yes&iframe=true&width=80%&height=100%"><i class="fa fa-images"></i></a>
+                                              <!-- MODAL WINDOW -->
+                                              <a href="javascript:;" data-toggle="modal" data-target="#media"><i class="fa fa-images"></i></a>
+                                              <?php suModalWindow('media', ADMIN_URL . 'media'.PHP_EXTENSION.'/?overlay=yes'); ?>
                                             </div>
                                             <!-- MEDIA MANAGER// -->
                                             <label><?php echo $dbs_sulata_faqs['faq__Answer_req']; ?><?php echo $dbs_sulata_faqs['faq__Answer_title']; ?>:</label>
@@ -100,7 +102,7 @@ if (suSegment(2) == 'duplicate') {
                                             ?>
                                         </div>
 
-                                        <div class="col-12 col-md-3">        
+                                        <div class="col-12 col-md-3">
                                             <label><?php echo $dbs_sulata_faqs['faq__Status_req']; ?><?php echo $dbs_sulata_faqs['faq__Status_title']; ?>:</label>
                                             <?php
                                             $options = $dbs_sulata_faqs['faq__Status_array'];
@@ -137,7 +139,7 @@ if (suSegment(2) == 'duplicate') {
                                 echo suInput('input', $arg);
                                 ?>
                             </form>
-                           
+
                             <!--SU ENDS-->
                         </div>
                     </div>
@@ -148,13 +150,13 @@ if (suSegment(2) == 'duplicate') {
                     </div>
                 </div>
                 <hr/>
-                <!-- FOOTER -->                        
+                <!-- FOOTER -->
                 <?php include('includes/footer.php'); ?>
             </div>
         </div>
         <?php include('includes/footer-js.php'); ?>
     </body>
-    
-       
+
+
     <?php suIframe(); ?>
 </html>
