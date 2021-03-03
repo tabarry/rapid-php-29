@@ -1,5 +1,5 @@
 <!-- Title here -->
-<title><?php echo $getSettings['site_name']; ?></title>
+<title><?php echo strip_tags($pageTitle) .' - '.$getSettings['site_name']; ?></title>
 <noscript>
 <meta http-equiv="refresh" content="0;url=<?php echo NOSCRIPT_URL; ?>"/>
 </noscript>

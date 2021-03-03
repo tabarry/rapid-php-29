@@ -494,6 +494,7 @@ function doChangePassword(fld) {
 //Toggle Launchpad
 
 function doToggleLaunchpad(arg) {
+    $('html, body').animate({scrollTop: parent.$('html').offset().top});
     if (arg == false) {
         $('#launchpad').addClass('launchpad-hide');
         $('#launchpad').removeClass('launchpad-show');

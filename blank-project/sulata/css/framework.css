@@ -336,3 +336,10 @@ footer{
     max-width: 80% !important;
     min-height: 600px;
 }
+.dateBox{
+    cursor: pointer;
+    background-image: url(icons/calendar.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

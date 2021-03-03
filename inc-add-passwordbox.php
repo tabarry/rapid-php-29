@@ -18,7 +18,7 @@ if ($doUpdate == TRUE) {
     if (\$_POST['" . $_POST['frmField'][$i] . "'] == '') {
            \$x_" . $_POST['frmField'][$i] . " = \$_POST[\$previous_password_prefix.'" . $_POST['frmField'][$i] . "'];
     }else{
-        \$x_" . $_POST['frmField'][$i] . " = crypt(\$_POST['" . $_POST['frmField'][$i] . "'],uniqid());
+        \$x_" . $_POST['frmField'][$i] . " = crypt(suStrip(\$_POST['" . $_POST['frmField'][$i] . "']),API_KEY);
     }
 ";
     $resetUploadValidation .= "
@@ -40,7 +40,6 @@ if ($doUpdate == TRUE) {
 }
 $addCode .= "
 <!-- PASSWORD FIELDS -->   
-<div>
 <?php
 {$pass_req}
 {$pass_req_star}
@@ -59,7 +58,6 @@ $addCode .= "
                                 {$previous_password}
 
                                 ?>
-</div>
 <div class=\"col-12 col-md-" . $_POST['frmColumnCount'][$i] . " " . $class_password . "\" id=\"" . $_POST['frmField'][$i] . "-2\">                                     
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo CONFIRM;?> <?php echo  \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
                                 <?php

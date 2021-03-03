@@ -126,7 +126,7 @@ $password = suGeneratePassword();
                                             <thead>
                                                 <tr>
                                                     <th width="90%">GROUPS</th>
-                                                    <th width="10%" class="right">
+                                                    <th width="10%" class="text-right">
                                                         &nbsp;
                                                         <?php if ($addAccess == TRUE) { ?>
                                                           <!-- MODAL WINDOW -->

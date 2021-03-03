@@ -6,7 +6,7 @@
  * Project Creation Date: #DATE#
  */
 //Gzip output
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+if (isset($_SERVER['HTTP_ACCEPT_ENCODING']) && substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     ob_start('ob_gzhandler');
 } else {
     ob_start();
@@ -95,10 +95,10 @@ $GLOBALS['duplicateAccess'] = TRUE;
 $GLOBALS['deleteAccess'] = TRUE;
 $GLOBALS['restoreAccess'] = TRUE;
 $GLOBALS['addAccess'] = TRUE;
-$GLOBALS['downloadAccessCSV'] = TRUE;
-$GLOBALS['downloadAccessPDF'] = TRUE;
+$GLOBALS['downloadAccessCSV'] = FALSE;
+$GLOBALS['downloadAccessPDF'] = FALSE;
 $GLOBALS['searchAccess'] = TRUE;
-$GLOBALS['sortable'] = TRUE;
+$GLOBALS['sortable'] = FALSE;
 //======
 $module_prefix = '_____a_____';
 $module_postfix = '_____z_____';

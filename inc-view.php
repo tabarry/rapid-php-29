@@ -64,18 +64,18 @@ for ($i = 0; $i <= sizeof($_POST['frmShow']) - 1; $i++) {
                                             </td>\n";
         } else {
             if ($_POST['frmType'][$i] == 'Currency') {
-                $fieldsToShow .= "<th class=\"right\" style=\"width:" . $colSize . "%\"><?php echo \$" . $_POST['frmShow'][$i] . "_th" . ";?> <sup><?php echo \$getSettings['site_currency'];?></sup></th>\n";
+                $fieldsToShow .= "<th class=\"text-right\" style=\"width:" . $colSize . "%\"><?php echo \$" . $_POST['frmShow'][$i] . "_th" . ";?> <sup><?php echo \$getSettings['site_currency'];?></sup></th>\n";
             } elseif ($_POST['frmType'][$i] == 'Float' || $_POST['frmType'][$i] == 'Integer' || $_POST['frmType'][$i] == 'Double') {
-                $fieldsToShow .= "<th class=\"right\" style=\"width:" . $colSize . "%\"><?php echo \$" . $_POST['frmShow'][$i] . "_th" . ";?></th>\n";
+                $fieldsToShow .= "<th class=\"text-right\" style=\"width:" . $colSize . "%\"><?php echo \$" . $_POST['frmShow'][$i] . "_th" . ";?></th>\n";
             } else {
                 $fieldsToShow .= "<th style=\"width:" . $colSize . "%\"><?php echo \$" . $_POST['frmShow'][$i] . "_th" . ";?></th>\n";
             }
 
             if ($_POST['frmType'][$i] == 'Integer') {
-                $colData .= "<td class=\"right\"><?php echo number_format(".$suStripUnstrip."(\$row['" . $_POST['frmShow'][$i] . "']));?></td>\n";
+                $colData .= "<td class=\"text-right\"><?php echo number_format(".$suStripUnstrip."(\$row['" . $_POST['frmShow'][$i] . "']));?></td>\n";
             } elseif ($_POST['frmType'][$i] == 'Double' || $_POST['frmType'][$i] == 'Float' || $_POST['frmType'][$i] == 'Currency') {
 
-                $colData .= "<td class=\"right\"><?php echo number_format(".$suStripUnstrip."(\$row['" . $_POST['frmShow'][$i] . "']),2);?></td>\n";
+                $colData .= "<td class=\"text-right\"><?php echo number_format(".$suStripUnstrip."(\$row['" . $_POST['frmShow'][$i] . "']),2);?></td>\n";
             } else {
 
                 if (in_array($_POST['frmShow'][$i], $varchar)) {

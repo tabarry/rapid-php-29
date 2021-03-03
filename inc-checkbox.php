@@ -53,7 +53,7 @@ if ($_POST['frmDetailsSourceText'] != 'Checkbox Text..') {
     <thead>
         <tr>
             <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
-            <th width=\"10%\" class=\"right\">
+            <th width=\"10%\" class=\"text-right\">
                 &nbsp;
                 <?php if (\$addAccess == 'true') { ?>
 
@@ -102,7 +102,7 @@ foreach (\$result['result'] as \$row) {
     <thead>
         <tr>
             <th width=\"90%\">" . strtoupper(str_replace('-', ' ', explodeExtract($t1, "_", 0))) . "</th>
-            <th width=\"10%\" class=\"right\">
+            <th width=\"10%\" class=\"text-right\">
                 &nbsp;
                 <?php if (\$addAccess == 'true') { ?>
 
